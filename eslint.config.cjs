@@ -1,22 +1,22 @@
 /** @type {import("eslint").Linter.Config} */
 
-const eslintPluginAstro = require("eslint-plugin-astro");
+const eslintPluginAstro = require('eslint-plugin-astro');
 
 module.exports = {
-  extends: ["plugin:astro/recommended"],
-  parser: "@typescript-eslint/parser",
+  extends: ['plugin:astro/recommended'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     tsconfigRootDir: __dirname,
-    sourceType: "module",
-    ecmaVersion: "latest",
+    sourceType: 'module',
+    ecmaVersion: 'latest',
   },
   overrides: [
     {
-      files: ["*.astro"],
-      parser: "astro-eslint-parser",
+      files: ['*.astro'],
+      parser: 'astro-eslint-parser',
       parserOptions: {
-        parser: "@typescript-eslint/parser",
-        extraFileExtensions: [".astro"],
+        parser: '@typescript-eslint/parser',
+        extraFileExtensions: ['.astro'],
       },
       rules: {
         // override/add rules settings here, such as:
@@ -24,5 +24,5 @@ module.exports = {
       },
     },
   ],
-  ...eslintPluginAstro.configs["flat/recommended"], // In CommonJS, the `flat/` prefix is required.
+  ...eslintPluginAstro.configs['flat/recommended'], // In CommonJS, the `flat/` prefix is required.
 };
