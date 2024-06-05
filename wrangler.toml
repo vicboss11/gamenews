@@ -1,0 +1,8 @@
+[vars]
+WP_SITE = "gamenews.programacionavanzadaweb.com"
+
+[env.develop.vars]
+WP_SITE = "gamenews.programacionavanzadaweb.com"
+
+[env.production.vars]
+WP_SITE = "gamenews.programacionavanzadaweb.com"
