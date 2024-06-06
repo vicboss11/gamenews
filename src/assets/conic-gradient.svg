@@ -1,0 +1,75 @@
+<svg id="eyEXlpRoYiB1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 1200 1200" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+  <style><![CDATA[#eyEXlpRoYiB2_to {animation: eyEXlpRoYiB2_to__to 10000ms linear infinite normal forwards}@keyframes eyEXlpRoYiB2_to__to { 0% {offset-distance: 0%} 50% {offset-distance: 48.916278%} 100% {offset-distance: 100%}} #eyEXlpRoYiB3_to {animation: eyEXlpRoYiB3_to__to 10000ms linear infinite normal forwards}@keyframes eyEXlpRoYiB3_to__to { 0% {offset-distance: 0%} 50% {offset-distance: 52.409461%} 100% {offset-distance: 100%}} #eyEXlpRoYiB4_to {animation: eyEXlpRoYiB4_to__to 10000ms linear infinite normal forwards}@keyframes eyEXlpRoYiB4_to__to { 0% {offset-distance: 0%} 50% {offset-distance: 46.565808%} 100% {offset-distance: 100%}} #eyEXlpRoYiB5_to {animation: eyEXlpRoYiB5_to__to 10000ms linear infinite normal forwards}@keyframes eyEXlpRoYiB5_to__to { 0% {offset-distance: 0%} 50% {offset-distance: 50.34658%} 100% {offset-distance: 100%}}]]></style>
+  <defs>
+    <radialGradient id="eyEXlpRoYiB2-fill" cx="0" cy="0" r="0.5" spreadMethod="pad"
+      gradientUnits="objectBoundingBox" gradientTransform="matrix(0 1 -0.99975 0 0.5 0.5)">
+      <stop id="eyEXlpRoYiB2-fill-0" offset="0%" stop-color="rgba(62,100,255,1)" />
+      <stop id="eyEXlpRoYiB2-fill-1" offset="13.689453%" stop-color="rgba(62,100,255,0.792157)" />
+      <stop id="eyEXlpRoYiB2-fill-2" offset="25.890625%" stop-color="rgba(62,100,255,0.603922)" />
+      <stop id="eyEXlpRoYiB2-fill-3" offset="37.177734%" stop-color="rgba(62,100,255,0.431373)" />
+      <stop id="eyEXlpRoYiB2-fill-4" offset="48.125%" stop-color="rgba(62,100,255,0.286275)" />
+      <stop id="eyEXlpRoYiB2-fill-5" offset="59.306641%" stop-color="rgba(62,100,255,0.164706)" />
+      <stop id="eyEXlpRoYiB2-fill-6" offset="71.296875%" stop-color="rgba(62,100,255,0.0745098)" />
+      <stop id="eyEXlpRoYiB2-fill-7" offset="84.669922%" stop-color="rgba(62,100,255,0.0196078)" />
+      <stop id="eyEXlpRoYiB2-fill-8" offset="100%" stop-color="rgba(62,100,255,0)" />
+    </radialGradient>
+    <radialGradient id="eyEXlpRoYiB3-fill" cx="0" cy="0" r="0.5" spreadMethod="pad"
+      gradientUnits="objectBoundingBox" gradientTransform="matrix(0 1 -0.99975 0 0.5 0.5)">
+      <stop id="eyEXlpRoYiB3-fill-0" offset="0%" stop-color="rgba(62,100,255,1)" />
+      <stop id="eyEXlpRoYiB3-fill-1" offset="13.689453%" stop-color="rgba(62,100,255,0.792157)" />
+      <stop id="eyEXlpRoYiB3-fill-2" offset="25.890625%" stop-color="rgba(62,100,255,0.603922)" />
+      <stop id="eyEXlpRoYiB3-fill-3" offset="37.177734%" stop-color="rgba(62,100,255,0.431373)" />
+      <stop id="eyEXlpRoYiB3-fill-4" offset="48.125%" stop-color="rgba(62,100,255,0.286275)" />
+      <stop id="eyEXlpRoYiB3-fill-5" offset="59.306641%" stop-color="rgba(62,100,255,0.164706)" />
+      <stop id="eyEXlpRoYiB3-fill-6" offset="71.296875%" stop-color="rgba(62,100,255,0.0745098)" />
+      <stop id="eyEXlpRoYiB3-fill-7" offset="84.669922%" stop-color="rgba(62,100,255,0.0196078)" />
+      <stop id="eyEXlpRoYiB3-fill-8" offset="100%" stop-color="rgba(62,100,255,0)" />
+    </radialGradient>
+    <radialGradient id="eyEXlpRoYiB4-fill" cx="0" cy="0" r="0.5" spreadMethod="pad"
+      gradientUnits="objectBoundingBox" gradientTransform="matrix(0 1 -0.99975 0 0.5 0.5)">
+      <stop id="eyEXlpRoYiB4-fill-0" offset="0%" stop-color="rgba(62,100,255,1)" />
+      <stop id="eyEXlpRoYiB4-fill-1" offset="13.689453%" stop-color="rgba(62,100,255,0.792157)" />
+      <stop id="eyEXlpRoYiB4-fill-2" offset="25.890625%" stop-color="rgba(62,100,255,0.603922)" />
+      <stop id="eyEXlpRoYiB4-fill-3" offset="37.177734%" stop-color="rgba(62,100,255,0.431373)" />
+      <stop id="eyEXlpRoYiB4-fill-4" offset="48.125%" stop-color="rgba(62,100,255,0.286275)" />
+      <stop id="eyEXlpRoYiB4-fill-5" offset="59.306641%" stop-color="rgba(62,100,255,0.164706)" />
+      <stop id="eyEXlpRoYiB4-fill-6" offset="71.296875%" stop-color="rgba(62,100,255,0.0745098)" />
+      <stop id="eyEXlpRoYiB4-fill-7" offset="84.669922%" stop-color="rgba(62,100,255,0.0196078)" />
+      <stop id="eyEXlpRoYiB4-fill-8" offset="100%" stop-color="rgba(62,100,255,0)" />
+    </radialGradient>
+    <radialGradient id="eyEXlpRoYiB5-fill" cx="0" cy="0" r="0.5" spreadMethod="pad"
+      gradientUnits="objectBoundingBox" gradientTransform="matrix(0 1 -0.99975 0 0.5 0.5)">
+      <stop id="eyEXlpRoYiB5-fill-0" offset="0%" stop-color="rgba(62,100,255,1)" />
+      <stop id="eyEXlpRoYiB5-fill-1" offset="13.689453%" stop-color="rgba(62,100,255,0.792157)" />
+      <stop id="eyEXlpRoYiB5-fill-2" offset="25.890625%" stop-color="rgba(62,100,255,0.603922)" />
+      <stop id="eyEXlpRoYiB5-fill-3" offset="37.177734%" stop-color="rgba(62,100,255,0.431373)" />
+      <stop id="eyEXlpRoYiB5-fill-4" offset="48.125%" stop-color="rgba(62,100,255,0.286275)" />
+      <stop id="eyEXlpRoYiB5-fill-5" offset="59.306641%" stop-color="rgba(62,100,255,0.164706)" />
+      <stop id="eyEXlpRoYiB5-fill-6" offset="71.296875%" stop-color="rgba(62,100,255,0.0745098)" />
+      <stop id="eyEXlpRoYiB5-fill-7" offset="84.669922%" stop-color="rgba(62,100,255,0.0196078)" />
+      <stop id="eyEXlpRoYiB5-fill-8" offset="100%" stop-color="rgba(62,100,255,0)" />
+    </radialGradient>
+  </defs>
+  <g id="eyEXlpRoYiB2_to"
+    style="offset-path:path('M606.663522,449.545964C406.199722,364.141291,269.550692,658.506394,357.467794,738.033966C552.864512,787.763507,737.894636,611.58884,606.663522,449.545964');offset-rotate:0deg">
+    <ellipse rx="417" ry="416.896" transform="translate(0.000027,-0.000006)"
+      fill="url(#eyEXlpRoYiB2-fill)" fill-rule="evenodd" stroke-miterlimit="1" />
+  </g>
+  <g id="eyEXlpRoYiB3_to"
+    style="offset-path:path('M718.402091,150.000016C520.998445,83.06441,584.07364,342.603325,668.402091,360.000016C770.197164,391.202245,859.349851,213.933068,718.402091,150.000016');offset-rotate:0deg">
+    <ellipse rx="306.677" ry="306.6"
+      transform="scale(1.672624,1.672616) translate(0.000452,-0.000018)"
+      fill="url(#eyEXlpRoYiB3-fill)" fill-rule="evenodd" stroke-miterlimit="1" />
+  </g>
+  <g id="eyEXlpRoYiB4_to"
+    style="offset-path:path('M547.676575,620.800003C452.753153,759.313215,323.75281,570.799649,397.743736,438.812565C518.930406,252.643621,639.195208,461.664493,547.676575,620.800003');offset-rotate:0deg">
+    <ellipse rx="252" ry="251.937" transform="translate(0.000425,-0.000003)"
+      fill="url(#eyEXlpRoYiB4-fill)" fill-rule="evenodd" stroke-miterlimit="1" />
+  </g>
+  <g id="eyEXlpRoYiB5_to"
+    style="offset-path:path('M391.821414,370.899838C544.285991,227.14324,931.504218,224.725093,774.467396,431.433905C668.953504,579.263901,220.098748,548.373221,391.821414,370.899838');offset-rotate:0deg">
+    <ellipse rx="306.677" ry="306.6" transform="translate(0.000425,0.000055)"
+      fill="url(#eyEXlpRoYiB5-fill)" fill-rule="evenodd" stroke-miterlimit="1" />
+  </g>
+</svg>
