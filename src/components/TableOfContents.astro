@@ -1,0 +1,248 @@
+---
+import type { Heading, OrganizedHeading } from '../models/interfaces/html';
+
+interface Props {
+  headings: string | null;
+  title: string | null;
+}
+
+const { headings, title }: Props = Astro.props;
+
+const parsedHeadings: Heading[] = JSON.parse(headings || '[]');
+
+const organizeHeadings = (headings: Heading[]): OrganizedHeading[] => {
+  const organizedHeadings: OrganizedHeading[] = [];
+
+  let currentH2: OrganizedHeading | null = null;
+
+  for (const heading of headings) {
+    if (heading.tag === 'h2') {
+      currentH2 = { ...heading, subHeadings: [] };
+
+      organizedHeadings.push(currentH2);
+    } else if (heading.tag === 'h3' && currentH2) {
+      currentH2.subHeadings.push(heading);
+    }
+  }
+
+  return organizedHeadings;
+};
+
+const organizedHeadings = organizeHeadings(parsedHeadings);
+---
+
+<details id="toc" class="table-of-contents">
+  <summary class="table-of-contents-summary">
+    {title || '¿Qué vas a encontar en este artículo?'}
+
+    <i class="ti ti-caret-down-filled"></i>
+  </summary>
+
+  <article class="table-of-contents-list-container">
+    <ul class="table-of-contents-list">
+      {
+        organizedHeadings.map((heading) => (
+          <li class="table-of-contents-list-item">
+            <a class="table-of-contents-link" href={`#${heading.id}`}>
+              {heading.text}
+            </a>
+
+            <ul>
+              {heading.subHeadings.map((subHeading) => (
+                <li>
+                  <a class="table-of-contents-link" href={`#${subHeading.id}`}>
+                    {subHeading.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ul>
+  </article>
+</details>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const details = document.getElementById('toc') as HTMLDetailsElement | null;
+
+    if (!details) return;
+
+    details.addEventListener('toggle', () => {
+      if (details.open) {
+        details.classList.remove('sweep');
+
+        void details.offsetWidth;
+
+        details.classList.add('sweep');
+      } else {
+        details.classList.remove('sweep');
+      }
+    });
+  });
+</script>
+
+<style>
+  .table-of-contents {
+    --opacity: 0.35;
+    --radius: 1.5em;
+
+    border-radius: var(--radius);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, var(--opacity));
+    overflow: hidden;
+  }
+
+  .table-of-contents[open] .table-of-contents-summary {
+    border-bottom-left-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .table-of-contents[open] .table-of-contents-summary > i {
+    transform: rotate(180deg);
+  }
+
+  .table-of-contents.sweep[open] .table-of-contents-list-container {
+    animation: sweep 0.5s ease-in;
+  }
+
+  .table-of-contents > .table-of-contents-list-container {
+    max-height: 0;
+
+    overflow: hidden;
+    transition: max-height 1s ease-out;
+
+    will-change: max-height;
+  }
+
+  .table-of-contents.sweep > .table-of-contents-list-container {
+    max-height: 1500px;
+  }
+
+  @keyframes sweep {
+    0% {
+      opacity: 0;
+      margin-left: -10px;
+    }
+    100% {
+      opacity: 1;
+      margin-left: 0px;
+    }
+  }
+
+  .table-of-contents::-webkit-details-marker {
+    display: none;
+  }
+
+  .table-of-contents-summary {
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-width: 100%;
+    padding: 2em;
+    font-weight: bold;
+    list-style: none;
+    font-size: 1.15em;
+    overflow: hidden;
+    transform: opacity 500ms ease-in-out;
+
+    transition: opacity 300ms ease-in-out;
+    cursor: pointer;
+  }
+
+  .table-of-contents-summary::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/assets/conic-gradient.svg');
+
+    background-color: #3e65ff26;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
+    opacity: 0.5;
+
+    filter: blur(15px);
+  }
+
+  .table-of-contents-summary:hover {
+    opacity: 0.8;
+  }
+
+  .table-of-contents-summary > i {
+    font-size: 1em;
+    color: initial;
+    transition: 0.2s;
+  }
+
+  .table-of-contents-list-container {
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+    padding-left: 3.5em;
+
+    user-select: none;
+  }
+
+  .table-of-contents-list-container > .table-of-contents-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 1em;
+
+    font-size: 1.1em;
+  }
+
+  .table-of-contents-list {
+    font-weight: 500;
+    list-style-type: initial;
+  }
+
+  .table-of-contents-link:hover {
+    text-decoration: underline;
+  }
+
+  .table-of-contents-list,
+  .table-of-contents-list-item {
+    width: 100%;
+    height: 100%;
+    margin: 0.25em 0;
+  }
+
+  .table-of-contents-list-item > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: 1em;
+
+    list-style-type: circle;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .table-of-contents-summary::after {
+      background-color: #ffffff0a;
+    }
+  }
+
+  :is(.light-theme) .table-of-contents-summary::after {
+    background-color: #ffffff4d;
+  }
+
+  :is(.dark-theme) .table-of-contents-summary::after {
+    background-color: #ffffff0a;
+  }
+</style>
