@@ -1,4 +1,5 @@
 [vars]
+APP_NAME = "GameNews"
 WP_SITE = "gamenews.programacionavanzadaweb.com"
 
 [env.develop.vars]
