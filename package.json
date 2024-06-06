@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/check": "^0.7.0",
     "@astrojs/cloudflare": "^10.2.6",
+    "@tabler/icons-webfont": "^3.5.0",
     "astro": "^4.9.3",
     "dotenv": "^16.4.5",
     "typescript": "^5.4.5"
