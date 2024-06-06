@@ -1,0 +1,35 @@
+---
+import PostContent from '../../components/PostContent.astro';
+import PostLayout from '../../layouts/PostLayout.astro';
+import type { WpPost } from '../../models/interfaces/wordpress';
+import parseHtml from '../../scripts/parse-html';
+
+const { slug } = Astro.params;
+
+const APP_NAME =
+  import.meta.env.APP_NAME || Astro.locals.runtime.env.APP_NAME || 'GameNews';
+const WP_SITE = import.meta.env.WP_SITE || Astro.locals.runtime.env.WP_SITE;
+
+const res = await fetch(
+  `https://${WP_SITE}/wp-json/wp/v2/posts?slug=${slug}&_embed`,
+);
+const [post]: [WpPost] = await res.json();
+
+const { segments } = parseHtml(post.content.rendered);
+
+// Se requiere la función getStaticPaths() para sitios estáticos en Astro.
+// Si estás utilizando SSR, no necesitarás esta función.
+export async function getStaticPaths() {
+  const data = await fetch(`https://${WP_SITE}/wp-json/wp/v2/posts?_embed`);
+  const posts: WpPost[] = await data.json();
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post: post },
+  }));
+}
+---
+
+<PostLayout appName={APP_NAME} title={post.title.rendered}>
+  <PostContent segments={segments} />
+</PostLayout>
