@@ -1,0 +1,35 @@
+<nav class="navbar">
+  <ul class="navbar-links">
+    <li class="navbar-link">
+      <a href="#">Inicio</a>
+    </li>
+    <li class="navbar-link">
+      <a href="#">Posts</a>
+    </li>
+    <li class="navbar-link">
+      <a href="#">Blog</a>
+    </li>
+  </ul>
+</nav>
+
+<style is:global>
+  .navbar {
+    display: grid;
+    place-content: center;
+
+    margin-left: auto;
+    font-size: 1.15em;
+  }
+
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  @media (min-width: 440px) {
+    .navbar {
+      position: static;
+    }
+  }
+</style>
