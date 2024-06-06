@@ -1,0 +1,273 @@
+---
+interface Props {
+  appName: string;
+}
+
+const { appName } = Astro.props;
+---
+
+<footer class="footer">
+  <section class="footer-section">
+    <article>
+      <form class="footer-subscribe" onsubmit="(e) => e.preventDefault()">
+        <span>¡Suscríbete a nuestra newsletter!</span>
+
+        <div class="footer-subscribe-control">
+          <input
+            class="footer-subscribe-email"
+            type="email"
+            placeholder="Email"
+          />
+
+          <button
+            class="footer-subscribe-submit-btn"
+            type="submit"
+            role="button"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </form>
+
+      <aside class="footer-related-pages">
+        <a class="footer-link" href="#">SEO básico</a>
+        <a class="footer-link" href="#">Fragmentos enriquecidos</a>
+      </aside>
+
+      <aside class="footer-social">
+        <a class="footer-link" href="#">
+          <i class="ti ti-brand-x"></i>
+        </a>
+
+        <a class="footer-link" href="#">
+          <i class="ti ti-brand-instagram"></i>
+        </a>
+
+        <a class="footer-link" href="#">
+          <i class="ti ti-brand-facebook"></i>
+        </a>
+
+        <a class="footer-link" href="#">
+          <i class="ti ti-brand-linkedin"></i>
+        </a>
+      </aside>
+    </article>
+  </section>
+
+  <section class="footer-section">
+    <article>
+      <aside class="footer-miscellany">
+        <a class="footer-link" href="#">Sobre nosostros</a>
+        <a class="footer-link" href="#">Contacto</a>
+        <a class="footer-link" href="#">Privacidad</a>
+        <a class="footer-link" href="#">Cookies</a>
+      </aside>
+
+      <aside class="footer-company">
+        <span>{appName}</span>
+      </aside>
+
+      <aside class="footer-copyright">
+        <span>© 2024. Todos los derechos reservados.</span>
+      </aside>
+    </article>
+  </section>
+</footer>
+
+<style is:global>
+  .footer {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 3em;
+    background-color: var(--second-bg-color);
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-section > article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 2em var(--lateral-spacing);
+  }
+
+  .footer-section:first-of-type {
+    border-bottom: 4px solid var(--first-bg-color);
+  }
+
+  .footer-link {
+    height: fit-content;
+    text-decoration: none;
+    font-size: 1.05em;
+    font-weight: 400;
+    color: inherit;
+    opacity: 0.5;
+    transition: opacity 250ms;
+
+    cursor: pointer;
+  }
+
+  .footer-link:hover {
+    opacity: 1;
+  }
+
+  .footer-subscribe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .footer-subscribe-control {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: fit-content;
+  }
+
+  .footer-subscribe-email {
+    display: block;
+
+    height: 45px;
+    padding: 0.375em 0.75em;
+    padding-right: calc(0.375em + 2.4em);
+    background-color: #e6e6e6;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 0.25em;
+
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5em;
+    color: #495057;
+  }
+
+  .footer-subscribe-email:focus {
+    outline: none;
+  }
+
+  .footer-subscribe-email::placeholder {
+    font-weight: bold;
+    opacity: 0.8;
+  }
+
+  .footer-subscribe-submit-btn {
+    position: absolute;
+    right: 1em;
+
+    border: none;
+    background: none;
+    font-size: 1.25em;
+    line-height: 0;
+    color: #141414;
+    opacity: 0.6;
+    transition: opacity 250ms;
+
+    cursor: pointer;
+  }
+
+  .footer-subscribe-submit-btn:hover {
+    opacity: 1;
+  }
+
+  .footer-related-pages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+  }
+
+  .footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25em;
+  }
+
+  .footer-social .footer-link {
+    display: grid;
+    place-content: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--third-bg-color);
+    font-size: 1.25em;
+    opacity: 0.6;
+    transition: opacity 500ms;
+  }
+
+  .footer-social .footer-link:hover {
+    opacity: 1;
+  }
+
+  .footer-miscellany {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25em;
+  }
+
+  .footer-company {
+    display: grid;
+    place-content: center;
+
+    font-size: 2em;
+    color: #3e64ff;
+    font-weight: bold;
+  }
+
+  .footer-copyright {
+    display: grid;
+    place-content: center;
+
+    font-size: 0.8em;
+    opacity: 0.8;
+  }
+
+  @media (min-width: 920px) {
+    .footer {
+      margin-top: 7em;
+    }
+
+    .footer-section > article {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 1em;
+
+      padding: 2em var(--lateral-spacing);
+    }
+
+    .footer-related-pages,
+    .footer-company {
+      margin: 0 auto;
+    }
+
+    .footer-subscribe,
+    .footer-miscellany {
+      margin-right: auto;
+    }
+
+    .footer-social,
+    .footer-copyright {
+      margin-left: auto;
+    }
+  }
+</style>
