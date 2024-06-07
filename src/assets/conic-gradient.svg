@@ -4,51 +4,23 @@
   <defs>
     <radialGradient id="eyEXlpRoYiB2-fill" cx="0" cy="0" r="0.5" spreadMethod="pad"
       gradientUnits="objectBoundingBox" gradientTransform="matrix(0 1 -0.99975 0 0.5 0.5)">
-      <stop id="eyEXlpRoYiB2-fill-0" offset="0%" stop-color="rgba(62,100,255,1)" />
-      <stop id="eyEXlpRoYiB2-fill-1" offset="13.689453%" stop-color="rgba(62,100,255,0.792157)" />
-      <stop id="eyEXlpRoYiB2-fill-2" offset="25.890625%" stop-color="rgba(62,100,255,0.603922)" />
-      <stop id="eyEXlpRoYiB2-fill-3" offset="37.177734%" stop-color="rgba(62,100,255,0.431373)" />
-      <stop id="eyEXlpRoYiB2-fill-4" offset="48.125%" stop-color="rgba(62,100,255,0.286275)" />
-      <stop id="eyEXlpRoYiB2-fill-5" offset="59.306641%" stop-color="rgba(62,100,255,0.164706)" />
-      <stop id="eyEXlpRoYiB2-fill-6" offset="71.296875%" stop-color="rgba(62,100,255,0.0745098)" />
-      <stop id="eyEXlpRoYiB2-fill-7" offset="84.669922%" stop-color="rgba(62,100,255,0.0196078)" />
-      <stop id="eyEXlpRoYiB2-fill-8" offset="100%" stop-color="rgba(62,100,255,0)" />
+      <stop id="eyEXlpRoYiB2-fill-0" offset="0%" stop-color="#4dd3cc" />
+      <stop id="eyEXlpRoYiB2-fill-1" offset="100%" stop-color="#4dd3cc" />
     </radialGradient>
     <radialGradient id="eyEXlpRoYiB3-fill" cx="0" cy="0" r="0.5" spreadMethod="pad"
       gradientUnits="objectBoundingBox" gradientTransform="matrix(0 1 -0.99975 0 0.5 0.5)">
-      <stop id="eyEXlpRoYiB3-fill-0" offset="0%" stop-color="rgba(62,100,255,1)" />
-      <stop id="eyEXlpRoYiB3-fill-1" offset="13.689453%" stop-color="rgba(62,100,255,0.792157)" />
-      <stop id="eyEXlpRoYiB3-fill-2" offset="25.890625%" stop-color="rgba(62,100,255,0.603922)" />
-      <stop id="eyEXlpRoYiB3-fill-3" offset="37.177734%" stop-color="rgba(62,100,255,0.431373)" />
-      <stop id="eyEXlpRoYiB3-fill-4" offset="48.125%" stop-color="rgba(62,100,255,0.286275)" />
-      <stop id="eyEXlpRoYiB3-fill-5" offset="59.306641%" stop-color="rgba(62,100,255,0.164706)" />
-      <stop id="eyEXlpRoYiB3-fill-6" offset="71.296875%" stop-color="rgba(62,100,255,0.0745098)" />
-      <stop id="eyEXlpRoYiB3-fill-7" offset="84.669922%" stop-color="rgba(62,100,255,0.0196078)" />
-      <stop id="eyEXlpRoYiB3-fill-8" offset="100%" stop-color="rgba(62,100,255,0)" />
+      <stop id="eyEXlpRoYiB3-fill-0" offset="0%" stop-color="#eb7085" />
+      <stop id="eyEXlpRoYiB3-fill-1" offset="100%" stop-color="#eb7085" />
     </radialGradient>
     <radialGradient id="eyEXlpRoYiB4-fill" cx="0" cy="0" r="0.5" spreadMethod="pad"
       gradientUnits="objectBoundingBox" gradientTransform="matrix(0 1 -0.99975 0 0.5 0.5)">
-      <stop id="eyEXlpRoYiB4-fill-0" offset="0%" stop-color="rgba(62,100,255,1)" />
-      <stop id="eyEXlpRoYiB4-fill-1" offset="13.689453%" stop-color="rgba(62,100,255,0.792157)" />
-      <stop id="eyEXlpRoYiB4-fill-2" offset="25.890625%" stop-color="rgba(62,100,255,0.603922)" />
-      <stop id="eyEXlpRoYiB4-fill-3" offset="37.177734%" stop-color="rgba(62,100,255,0.431373)" />
-      <stop id="eyEXlpRoYiB4-fill-4" offset="48.125%" stop-color="rgba(62,100,255,0.286275)" />
-      <stop id="eyEXlpRoYiB4-fill-5" offset="59.306641%" stop-color="rgba(62,100,255,0.164706)" />
-      <stop id="eyEXlpRoYiB4-fill-6" offset="71.296875%" stop-color="rgba(62,100,255,0.0745098)" />
-      <stop id="eyEXlpRoYiB4-fill-7" offset="84.669922%" stop-color="rgba(62,100,255,0.0196078)" />
-      <stop id="eyEXlpRoYiB4-fill-8" offset="100%" stop-color="rgba(62,100,255,0)" />
+      <stop id="eyEXlpRoYiB4-fill-0" offset="0%" stop-color="#4dd3cc" />
+      <stop id="eyEXlpRoYiB4-fill-1" offset="100%" stop-color="#4dd3cc" />
     </radialGradient>
     <radialGradient id="eyEXlpRoYiB5-fill" cx="0" cy="0" r="0.5" spreadMethod="pad"
       gradientUnits="objectBoundingBox" gradientTransform="matrix(0 1 -0.99975 0 0.5 0.5)">
-      <stop id="eyEXlpRoYiB5-fill-0" offset="0%" stop-color="rgba(62,100,255,1)" />
-      <stop id="eyEXlpRoYiB5-fill-1" offset="13.689453%" stop-color="rgba(62,100,255,0.792157)" />
-      <stop id="eyEXlpRoYiB5-fill-2" offset="25.890625%" stop-color="rgba(62,100,255,0.603922)" />
-      <stop id="eyEXlpRoYiB5-fill-3" offset="37.177734%" stop-color="rgba(62,100,255,0.431373)" />
-      <stop id="eyEXlpRoYiB5-fill-4" offset="48.125%" stop-color="rgba(62,100,255,0.286275)" />
-      <stop id="eyEXlpRoYiB5-fill-5" offset="59.306641%" stop-color="rgba(62,100,255,0.164706)" />
-      <stop id="eyEXlpRoYiB5-fill-6" offset="71.296875%" stop-color="rgba(62,100,255,0.0745098)" />
-      <stop id="eyEXlpRoYiB5-fill-7" offset="84.669922%" stop-color="rgba(62,100,255,0.0196078)" />
-      <stop id="eyEXlpRoYiB5-fill-8" offset="100%" stop-color="rgba(62,100,255,0)" />
+      <stop id="eyEXlpRoYiB5-fill-0" offset="0%" stop-color="#eb7085" />
+      <stop id="eyEXlpRoYiB5-fill-1" offset="100%" stop-color="#eb7085" />
     </radialGradient>
   </defs>
   <g id="eyEXlpRoYiB2_to"
