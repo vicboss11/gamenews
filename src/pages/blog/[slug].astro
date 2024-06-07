@@ -15,7 +15,7 @@ const res = await fetch(
 );
 const [post]: [WpPost] = await res.json();
 
-const { segments } = parseHtml(post.content.rendered);
+const { html, segments } = parseHtml(post.content.rendered);
 
 // Se requiere la función getStaticPaths() para sitios estáticos en Astro.
 // Si estás utilizando SSR, no necesitarás esta función.
@@ -31,5 +31,5 @@ export async function getStaticPaths() {
 ---
 
 <PostLayout appName={APP_NAME} title={post.title.rendered}>
-  <PostContent segments={segments} />
+  <PostContent post={post} html={html} segments={segments} />
 </PostLayout>
