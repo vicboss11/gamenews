@@ -1,10 +1,3 @@
-export interface Segment {
-  type: 'html' | 'component';
-  content?: string;
-  component?: string | null;
-  props?: { [key: string]: string | null };
-}
-
 export interface Heading {
   tag: string;
   text: string;
