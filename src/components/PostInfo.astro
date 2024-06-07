@@ -1,0 +1,87 @@
+---
+import type { WpPost } from '../models/interfaces/wordpress';
+import { getReadingTime } from '../scripts/post';
+
+interface Props {
+  post: WpPost;
+  html: string;
+}
+
+const { post, html }: Props = Astro.props;
+
+const author = post._embedded.author[0].name;
+
+const modifiedDate = new Date(post.modified).toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const { minutes: minutesToRead } = getReadingTime(html);
+const minuteString = minutesToRead === 1 ? 'minuto' : 'minutos';
+---
+
+<aside class="post-info-container">
+  <div class="post-info">
+    <span class="post-author">Escrito por {author}</span>
+    <span class="separator">|</span>
+
+    <div class="post-date">
+      <span class="post-date-label">Actualizado el</span>
+
+      <time class="post-date-time" datetime={post.modified}>
+        {modifiedDate}
+      </time>
+    </div>
+  </div>
+
+  <span class="post-time-to-read">
+    Tiempo de lectura: {minutesToRead}
+    {minuteString}
+  </span>
+</aside>
+
+<style>
+  .post-info-container {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 0.85em;
+    font-weight: 500;
+    margin-bottom: 3em;
+    padding-bottom: 1em;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .post-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+
+  .post-date {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+  }
+
+  .post-time-to-read {
+    font-size: 1.25em;
+    color: #3e64ff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .post-info {
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  :root.light-theme .post-info-container {
+    border-color: rgba(0, 0, 0, 0.3);
+  }
+
+  :root.dark-theme .post-info-container {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+</style>
