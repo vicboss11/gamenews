@@ -33,10 +33,10 @@ const { appName } = Astro.props;
   addThemeToggle();
 </script>
 
-<style is:global>
+<style lang="scss" is:global>
   .header {
     position: sticky;
-    top: -4em;
+    top: -4rem;
     z-index: 200;
 
     background-color: var(--second-bg-color);
@@ -47,13 +47,12 @@ const { appName } = Astro.props;
     grid-template-areas:
       'company company company'
       'navbar navbar actions';
-    gap: 1em;
+    gap: 1rem;
 
     width: 100%;
-    max-width: 1240px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 0.5em 1em;
-    padding-top: 2em;
+    padding: 1rem 5rem;
   }
 
   .header-company {
@@ -61,14 +60,18 @@ const { appName } = Astro.props;
     display: grid;
     place-content: center;
 
-    font-size: 2em;
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    font-size: 2rem;
     font-weight: bold;
-    color: #3e64ff;
   }
 
   .header-actions {
-    position: relative;
     grid-area: actions;
+
+    position: relative;
 
     display: grid;
     place-content: center;
@@ -93,50 +96,57 @@ const { appName } = Astro.props;
     border: none;
     background-color: transparent;
     border-radius: 50%;
-    width: 1.5em;
-    height: 1.5em;
-    font-size: 1.5em;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+
     transition: opacity 150ms;
 
     cursor: pointer;
-  }
 
-  .light-dark-btn:hover {
-    opacity: 0.5;
-  }
+    &:hover {
+      opacity: 0.5;
+    }
 
-  .light-dark-btn .ti-sun {
-    display: block;
-  }
+    .ti-sun {
+      display: block;
+    }
 
-  .light-dark-btn .ti-moon {
-    display: none;
+    .ti-moon {
+      display: none;
+    }
   }
 
   @media (prefers-color-scheme: dark) {
-    .light-dark-btn .ti-sun {
+    .light-dark-btn {
+      .ti-sun {
+        display: none;
+      }
+
+      .ti-moon {
+        display: block;
+      }
+    }
+  }
+
+  :root.light-dark-btn .light-dark-btn {
+    .ti-sun {
+      display: block;
+    }
+
+    .ti-moon {
+      display: none;
+    }
+  }
+
+  :root.dark-theme .light-dark-btn {
+    .ti-sun {
       display: none;
     }
 
-    .light-dark-btn .ti-moon {
+    .ti-moon {
       display: block;
     }
-  }
-
-  :root.light-theme .light-dark-btn .ti-sun {
-    display: block;
-  }
-
-  :root.light-theme .light-dark-btn .ti-moon {
-    display: none;
-  }
-
-  :root.dark-theme .light-dark-btn .fa-sun {
-    display: none;
-  }
-
-  :root.dark-theme .light-dark-btn .fa-moon {
-    display: block;
   }
 
   @media (min-width: 440px) {
@@ -148,16 +158,14 @@ const { appName } = Astro.props;
       display: flex;
       align-items: center;
 
-      padding-top: 0.5em;
+      // padding-top: 1rem;
     }
 
     .header-actions {
       position: static;
-    }
 
-    .header-actions {
-      margin-left: 1.25em;
-      margin-right: 1em;
+      margin-left: 1.25rem;
+      margin-right: 1rem;
     }
   }
 </style>
