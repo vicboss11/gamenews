@@ -105,6 +105,7 @@ const data: SegmentsPageData = {
         margin-right: auto;
 
         border-radius: 135px 179px 198px 169px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.35);
       }
     }
   }
@@ -116,6 +117,10 @@ const data: SegmentsPageData = {
       &::before {
         opacity: 0.1;
       }
+
+      & > section::after {
+        box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5);
+      }
     }
   }
 
@@ -125,6 +130,10 @@ const data: SegmentsPageData = {
     &::before {
       opacity: 0.15;
     }
+
+    & > section::after {
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.35);
+    }
   }
 
   :root.dark-theme .home-content header {
@@ -132,6 +141,10 @@ const data: SegmentsPageData = {
 
     &::before {
       opacity: 0.1;
+    }
+
+    & > section::after {
+      box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5);
     }
   }
 </style>
