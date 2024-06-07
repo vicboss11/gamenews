@@ -15,7 +15,7 @@ export interface WpPost extends WpPage {
   categories: number[];
   tags: string[];
   _embedded: {
-    author: WpAuthor;
+    author: WpAuthor[];
   };
   'wp:term': WpCategory[];
 }
