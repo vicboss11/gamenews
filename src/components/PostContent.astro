@@ -1,33 +1,29 @@
 ---
-import type { Segment } from '../models/interfaces/html';
-import TableOfContents from './TableOfContents.astro';
+import type { Segment, SegmentsPostData } from '../models/interfaces/segments';
+import type { WpPost } from '../models/interfaces/wordpress';
+import Segments from './Segments.astro';
 
 interface Props {
+  post?: WpPost;
+  html: string;
   segments: Segment[];
 }
 
-const { segments } = Astro.props;
+const { post, html, segments }: Props = Astro.props;
+
+if (!post) {
+  throw new Error('Post data is required');
+}
+
+const data: SegmentsPostData = {
+  post,
+  html,
+  segments,
+};
 ---
 
 <article class="post-content">
-  {
-    segments.map((segment) => {
-      if (segment.type === 'html') {
-        return <Fragment set:html={segment.content} />;
-      } else if (segment.type === 'component') {
-        if (segment.component === 'TableOfContents') {
-          return (
-            <TableOfContents
-              title={segment.props?.title || null}
-              headings={segment.props?.headings || null}
-            />
-          );
-        } else {
-          return <Fragment />;
-        }
-      }
-    })
-  }
+  <Segments data={data} />
 </article>
 
 <style is:global>
