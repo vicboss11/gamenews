@@ -1,0 +1,23 @@
+---
+import type { Segment, SegmentsPageData } from '../models/interfaces/segments';
+import type { WpPage } from '../models/interfaces/wordpress';
+import Segments from './Segments.astro';
+
+interface Props {
+  page: WpPage;
+  html: string;
+  segments: Segment[];
+}
+
+const { page, html, segments }: Props = Astro.props;
+
+const data: SegmentsPageData = {
+  page,
+  html,
+  segments,
+};
+---
+
+<main class="page-content">
+  <Segments data={data} />
+</main>
