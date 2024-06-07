@@ -36,7 +36,7 @@ const { appName } = Astro.props;
 <style lang="scss" is:global>
   .header {
     position: sticky;
-    top: -4rem;
+    top: -2.5rem;
     z-index: 200;
 
     background-color: var(--second-bg-color);
@@ -46,13 +46,14 @@ const { appName } = Astro.props;
     display: grid;
     grid-template-areas:
       'company company company'
-      'navbar navbar actions';
+      '. navbar actions';
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 1rem 5rem;
+    padding: 1rem var(--lateral-spacing);
   }
 
   .header-company {
@@ -80,6 +81,8 @@ const { appName } = Astro.props;
 
   .navbar {
     grid-area: navbar;
+
+    margin: 0 auto;
   }
 
   .light-dark-checkbox {
@@ -153,7 +156,7 @@ const { appName } = Astro.props;
     }
   }
 
-  @media (min-width: 440px) {
+  @media (min-width: 604px) {
     .header {
       top: 0;
     }
@@ -161,15 +164,15 @@ const { appName } = Astro.props;
     .header-container {
       display: flex;
       align-items: center;
+    }
 
-      // padding-top: 1rem;
+    .navbar {
+      margin: 0;
+      margin-left: auto;
     }
 
     .header-actions {
-      position: static;
-
-      margin-left: 1.25rem;
-      margin-right: 1rem;
+      margin-left: 2rem;
     }
   }
 </style>
