@@ -114,6 +114,8 @@ const { appName } = Astro.props;
 
     .ti-moon {
       display: none;
+
+      font-size: 1.25rem;
     }
   }
 
@@ -129,23 +131,25 @@ const { appName } = Astro.props;
     }
   }
 
-  :root.light-dark-btn .light-dark-btn {
-    .ti-sun {
-      display: block;
+  :root {
+    &.light-theme .light-dark-btn {
+      .ti-sun {
+        display: block;
+      }
+
+      .ti-moon {
+        display: none;
+      }
     }
 
-    .ti-moon {
-      display: none;
-    }
-  }
+    &.dark-theme .light-dark-btn {
+      .ti-sun {
+        display: none;
+      }
 
-  :root.dark-theme .light-dark-btn {
-    .ti-sun {
-      display: none;
-    }
-
-    .ti-moon {
-      display: block;
+      .ti-moon {
+        display: block;
+      }
     }
   }
 
