@@ -1,0 +1,23 @@
+---
+import PageContent from '../../components/PageContent.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
+import type { WpPage } from '../../models/interfaces/wordpress';
+import parseHtml from '../../scripts/parse-html';
+
+const slug = 'blog';
+
+const APP_NAME =
+  import.meta.env.APP_NAME || Astro.locals.runtime.env.APP_NAME || 'GameNews';
+const WP_SITE = import.meta.env.WP_SITE || Astro.locals.runtime.env.WP_SITE;
+
+const res = await fetch(
+  `https://${WP_SITE}/wp-json/wp/v2/pages?slug=${slug}&_embed`,
+);
+const [page]: [WpPage] = await res.json();
+
+const { html, segments } = parseHtml(page.content.rendered);
+---
+
+<PageLayout appName={APP_NAME} title={page.title.rendered}>
+  <PageContent page={page} html={html} segments={segments} />
+</PageLayout>
