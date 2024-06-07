@@ -1,0 +1,46 @@
+---
+import type { Segment } from '../models/interfaces/segments';
+import type { WpPage, WpPost } from '../models/interfaces/wordpress';
+import PostInfo from './PostInfo.astro';
+import TableOfContents from './TableOfContents.astro';
+
+interface Props {
+  data: {
+    page?: WpPage;
+    post?: WpPost;
+    html: string;
+    segments: Segment[];
+  };
+}
+
+const { data }: Props = Astro.props;
+
+const { post, html, segments } = data;
+---
+
+<Fragment>
+  {
+    segments.map((segment) => {
+      if (segment.type === 'html') {
+        return <Fragment set:html={segment.content} />;
+      } else if (segment.type === 'component') {
+        // Se selecciona el componente a renderizar
+        // ----------------------------------------
+        if (segment.component === 'PostInfo') {
+          return <PostInfo post={post!} html={html} />;
+        }
+
+        if (segment.component === 'TableOfContents') {
+          return (
+            <TableOfContents
+              title={segment.props?.title || null}
+              headings={segment.props?.headings || null}
+            />
+          );
+        }
+
+        return <Fragment />;
+      }
+    })
+  }
+</Fragment>
