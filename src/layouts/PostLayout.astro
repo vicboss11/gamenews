@@ -8,7 +8,7 @@ interface Props {
   title: string;
 }
 
-const { appName, title } = Astro.props;
+const { appName, title }: Props = Astro.props;
 ---
 
 <Layout title={title}>
