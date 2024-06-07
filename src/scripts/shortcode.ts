@@ -64,6 +64,11 @@ export function getComponentFromShortcode(shortcode: Shortcode): {
           id: shortcode.attributes.id, // TODO: Add attributes
         },
       };
+    case 'PostInfo':
+      return {
+        component: 'PostInfo',
+        props: {},
+      };
     case 'ToC':
       return {
         component: 'TableOfContents',

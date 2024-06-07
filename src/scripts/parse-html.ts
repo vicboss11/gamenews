@@ -4,7 +4,7 @@ import {
   getComponentFromShortcode,
   getShortcodesFromHtml,
   updateTocShortcodeWithHeadings,
-} from './replace-shortcodes';
+} from './shortcode';
 
 function parseHtml(html: string): { html: string; segments: Segment[] } {
   let sanitizedHtml = sanitizeHtml(html);
