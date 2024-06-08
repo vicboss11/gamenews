@@ -1,4 +1,5 @@
-import type { Heading, Segment } from '../models/interfaces/html';
+import type { Heading } from '../models/interfaces/html';
+import type { Segment } from '../models/interfaces/segments';
 import type { Shortcode } from '../models/interfaces/shortcodes';
 import {
   getComponentFromShortcode,
