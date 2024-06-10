@@ -1,4 +1,6 @@
 ---
+import LinkCard from '../layouts/LinkCard.astro';
+import LinkCards from '../layouts/LinkCards.astro';
 import type { Segment } from '../models/interfaces/segments';
 import type { WpPage, WpPost } from '../models/interfaces/wordpress';
 import PostInfo from './PostInfo.astro';
@@ -26,6 +28,14 @@ const { post, html, segments } = data;
       } else if (segment.type === 'component') {
         // Se selecciona el componente a renderizar
         // ----------------------------------------
+        if (segment.component === 'GameNews') {
+          // TODO: Implementar componente GameNews
+        }
+
+        if (segment.component === 'LinkCards') {
+          return <LinkCards />;
+        }
+
         if (segment.component === 'PostInfo') {
           return <PostInfo post={post!} html={html} />;
         }
@@ -39,6 +49,7 @@ const { post, html, segments } = data;
           );
         }
 
+        // Si no se encuentra el componente, se renderiza un fragment vacío
         return <Fragment />;
       }
     })

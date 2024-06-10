@@ -64,12 +64,10 @@ export function getComponentFromShortcode(shortcode: Shortcode): {
           from: shortcode.attributes?.from || null, // TODO: Add attributes
         },
       };
-    case 'LinkCard': {
+    case 'LinkCards': {
       return {
-        component: 'LinkCard',
-        props: {
-          to: shortcode.attributes?.title || null,
-        },
+        component: 'LinkCards',
+        props: {},
       };
     }
     case 'Posts':
