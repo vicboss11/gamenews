@@ -1,0 +1,22 @@
+---
+import { brands } from '../scripts/web';
+import LinkCard from './LinkCard.astro';
+
+const keyBrand = Object.entries(brands);
+---
+
+<section class="link-cards">
+  {keyBrand.map(([key, brand]) => <LinkCard to={key} brand={brand} />)}
+</section>
+
+<style>
+  .link-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: var(--layout-02);
+
+    margin: 0 var(--lateral-spacing);
+    margin-top: var(--layout-04);
+  }
+</style>
