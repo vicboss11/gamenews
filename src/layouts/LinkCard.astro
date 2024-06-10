@@ -1,0 +1,130 @@
+---
+interface Props {
+  to: string;
+  brand: string;
+}
+
+let { to, brand }: Props = Astro.props;
+
+const size = 40;
+---
+
+<section class=`link-card link-card-${to}`>
+  <a href={`/${to}/`}>
+    <img
+      src={`src/assets/web-brands/${to}.webp`}
+      alt={`Logo de ${brand}`}
+      width={`${size}px`}
+      height={`${size}px`}
+      loading="lazy"
+    />
+
+    <span>{brand}</span>
+
+    <i class="ti ti-caret-right-filled"></i>
+  </a>
+</section>
+
+<style lang="scss">
+  .link-card {
+    --opacity: 0.4;
+    --radius: 1rem;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    background-color: transparent;
+    transition: box-shadow 250ms ease-in-out;
+
+    border-radius: var(--radius);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, var(--opacity));
+
+    &.link-card-3djuegos {
+      --color-brand: rgba(255, 1, 0, 1);
+    }
+
+    &.link-card-anaitgames {
+      --color-brand: rgba(227, 68, 70, 1);
+    }
+
+    &.link-card-areajugones {
+      --color-brand: rgba(254, 222, 26, 1);
+    }
+
+    &.link-card-eurogamer {
+      --color-brand: rgba(1, 133, 204, 1);
+    }
+
+    &.link-card-hobbyconsolas {
+      --color-brand: rgba(2, 169, 249, 1);
+    }
+
+    &.link-card-ign {
+      --color-brand: rgba(194, 20, 18, 1);
+    }
+
+    &.link-card-meristation {
+      --color-brand: rgba(253, 112, 1, 1);
+    }
+
+    &.link-card-vandal {
+      --color-brand: rgba(40, 75, 91, 1);
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -10;
+
+      background-size: 35% 100%;
+      background-position: 100%;
+      background-image: conic-gradient(
+        from 317deg at 30% 90%,
+        var(--second-bg-color) 0%,
+        var(--color-brand) 20%
+      );
+      background-repeat: no-repeat;
+
+      border-radius: var(--radius);
+
+      overflow: hidden;
+      opacity: 0.25;
+
+      filter: blur(10px);
+    }
+
+    &:hover {
+      box-shadow: 0px 0px 10px 0px var(--color-brand);
+    }
+  }
+
+  img {
+    margin-right: var(--layout-01);
+
+    border-radius: var(--spacing-03);
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    padding: 1rem;
+
+    text-decoration: none;
+  }
+
+  span {
+    font-weight: 600;
+  }
+
+  i {
+    margin-left: auto;
+  }
+</style>
