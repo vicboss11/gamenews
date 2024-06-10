@@ -1,21 +1,27 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
 interface Props {
   to: string;
   brand: string;
 }
 
 let { to, brand }: Props = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/web-brands/*.webp',
+);
 
 const size = 40;
 ---
 
 <section class=`link-card link-card-${to}`>
   <a class="link-card-anchor" href={`/${to}/`}>
-    <img
-      src={`src/assets/web-brands/${to}.webp`}
+    <Image
+      src={images[`/src/assets/web-brands/${to}.webp`]()}
       alt={`Logo de ${brand}`}
-      width={`${size}px`}
-      height={`${size}px`}
+      width={size}
+      height={size}
       loading="lazy"
     />
 
