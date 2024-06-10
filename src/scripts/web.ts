@@ -8,9 +8,3 @@ export const brands: { [key: string]: string } = {
   meristation: 'MeriStation',
   vandal: 'Vandal',
 };
-
-export function keyToBrandName(key: string): string {
-  return (
-    brands[key] || key
-  );
-}
