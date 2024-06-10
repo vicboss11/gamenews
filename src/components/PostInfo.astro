@@ -46,10 +46,11 @@ const minuteString = minutesToRead === 1 ? 'minuto' : 'minutos';
     display: flex;
     flex-direction: column;
 
+    margin-bottom: var(--layout-04);
+    padding-bottom: var(--layout-01);
+
     font-size: 0.9rem;
     font-weight: 500;
-    margin-bottom: 3rem;
-    padding-bottom: 1rem;
 
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   }
@@ -57,19 +58,18 @@ const minuteString = minutesToRead === 1 ? 'minuto' : 'minutos';
   .post-info {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: var(--spacing-03);
   }
 
   .post-date {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: var(--spacing-02);
   }
 
   .post-time-to-read {
     color: #eb7085;
     font-size: 1.05rem;
-    line-height: normal;
   }
 
   @media (prefers-color-scheme: dark) {

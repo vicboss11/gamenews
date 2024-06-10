@@ -36,7 +36,7 @@ const { appName } = Astro.props;
 <style lang="scss" is:global>
   .header {
     position: sticky;
-    top: -2.5rem;
+    top: -4rem;
     z-index: 200;
 
     background-color: var(--second-bg-color);
@@ -48,12 +48,12 @@ const { appName } = Astro.props;
       'company company company'
       '. navbar actions';
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: var(--layout-01);
 
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 1rem var(--lateral-spacing);
+    padding: var(--layout-01) var(--lateral-spacing);
   }
 
   .header-company {
@@ -65,7 +65,7 @@ const { appName } = Astro.props;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    font-size: 2rem;
+    font-size: var(--layout-03);
     font-weight: bold;
   }
 
@@ -99,9 +99,11 @@ const { appName } = Astro.props;
     border: none;
     background-color: transparent;
     border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    font-size: 1.5rem;
+
+    --size: 1.5rem;
+    width: var(--size);
+    height: var(--size);
+    font-size: var(--size);
 
     transition: opacity 150ms;
 
@@ -172,7 +174,7 @@ const { appName } = Astro.props;
     }
 
     .header-actions {
-      margin-left: 2rem;
+      margin-left: var(--layout-03);
     }
   }
 </style>

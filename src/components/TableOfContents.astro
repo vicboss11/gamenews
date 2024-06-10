@@ -175,7 +175,7 @@ const organizedHeadings = organizeHeadings(parsedHeadings);
       background-repeat: no-repeat;
       background-position: center right;
 
-      opacity: 0.5;
+      opacity: 0.75;
 
       filter: blur(80px);
     }
@@ -235,19 +235,5 @@ const organizedHeadings = organizeHeadings(parsedHeadings);
 
   .table-of-contents-link:hover {
     text-decoration: underline;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .table-of-contents-summary::before {
-      opacity: 0.25;
-    }
-  }
-
-  :root.light-theme .table-of-contents-summary::before {
-    opacity: 0.5;
-  }
-
-  :root.dark-theme .table-of-contents-summary::before {
-    opacity: 0.25;
   }
 </style>

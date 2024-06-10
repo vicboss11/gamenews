@@ -41,7 +41,68 @@ const { title }: Props = Astro.props;
     --accent-gradient: linear-gradient(45deg, #4dd3cc, #eb7085 70%);
     --second-accent-gradient: linear-gradient(45deg, #4dd3cc, #eb7085 18%);
 
-    --lateral-spacing: 1.25rem;
+    --layout-01: 1rem;
+    --layout-02: 1.5rem;
+    --layout-03: 2rem;
+    --layout-04: 3rem;
+    --layout-05: 4rem;
+    --layout-06: 6rem;
+    --layout-07: 10rem;
+
+    --spacing-01: 0.125rem;
+    --spacing-02: 0.25rem;
+    --spacing-03: 0.5rem;
+    --spacing-04: 0.75rem;
+    --spacing-05: 1rem;
+    --spacing-06: 1.5rem;
+    --spacing-07: 2rem;
+    --spacing-08: 2.5rem;
+    --spacing-09: 3rem;
+
+    --lateral-spacing: var(--layout-01);
+
+    @media (min-width: 414px) {
+      --lateral-spacing: var(--layout-02);
+    }
+
+    @media (min-width: 768px) {
+      --lateral-spacing: var(--layout-03);
+    }
+
+    @media (min-width: 1024px) {
+      --lateral-spacing: var(--layout-04);
+    }
+
+    @media (min-width: 1280px) {
+      --lateral-spacing: var(--layout-05);
+    }
+
+    --scale: 1.14;
+
+    @media (min-width: 768px) {
+      --scale: 1.33;
+    }
+
+    --min-weight: 400;
+    --min-size: 12px;
+
+    --small-weight: 400;
+    --small-size: 14px;
+
+    --base-weight: 400;
+    --base-size: 16px;
+
+    --h4-weight: 800;
+    --h4-size: calc(var(--scale) * var(--base-size));
+
+    --h3-weight: 800;
+    --h3-size: calc(var(--scale) * var(--h4-size));
+
+    --h2-weight: 800;
+    --h2-size: calc(var(--scale) * var(--h3-size));
+
+    --h1-weight: 800;
+    --h1-size: calc(var(--scale) * var(--h2-size));
 
     font-family:
       'Poppins',
@@ -67,16 +128,11 @@ const { title }: Props = Astro.props;
     -webkit-text-size-adjust: 100%;
   }
 
-  @media (min-width: 520px) {
-    :root {
-      --lateral-spacing: 5rem;
-    }
-  }
-
   * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    line-height: normal;
   }
 
   body {
@@ -93,6 +149,7 @@ const { title }: Props = Astro.props;
   a {
     text-decoration: none;
     color: var(--color);
+
     cursor: pointer;
   }
 
@@ -108,19 +165,32 @@ const { title }: Props = Astro.props;
     list-style: none;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    line-height: normal;
+  p,
+  ul,
+  dl,
+  li {
+    font-size: var(--base-size);
+    font-weight: var(--base-weight);
   }
 
-  .post-content {
-    max-width: 700px;
-    width: 100%;
-    margin: 0 auto;
+  h1 {
+    font-size: var(--h1-size);
+    font-weight: var(--h1-weight);
+  }
+
+  h2 {
+    font-size: var(--h2-size);
+    font-weight: var(--h2-weight);
+  }
+
+  h3 {
+    font-size: var(--h3-size);
+    font-weight: var(--h3-weight);
+  }
+
+  h4 {
+    font-size: var(--h4-size);
+    font-weight: var(--h4-weight);
   }
 
   @media (prefers-color-scheme: dark) {

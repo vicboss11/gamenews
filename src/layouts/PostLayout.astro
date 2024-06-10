@@ -29,44 +29,47 @@ const { appName, title }: Props = Astro.props;
 
     header,
     section {
-      margin: 0 1rem;
+      margin: 0 var(--lateral-spacing);
     }
 
     p {
-      margin: 0.75rem 0;
+      margin: var(--spacing-04) 0;
 
-      font-size: 1.15rem;
       text-align: left;
       text-wrap: pretty;
     }
 
     h1 {
-      margin: 0.5rem 0;
-      margin-top: 3rem;
-
-      font-size: 2.5rem;
-      line-height: normal;
+      margin: var(--spacing-03) 0;
+      margin-top: var(--layout-04);
     }
 
     h2 {
-      margin-bottom: 1.25rem;
-      padding-top: 5rem;
-
-      font-size: 1.75rem;
-      line-height: normal;
+      margin-bottom: var(--spacing-06);
+      padding-top: var(--layout-06);
     }
 
     h3 {
-      margin-bottom: 1rem;
-      padding-top: 3rem;
+      margin-bottom: var(--spacing-07);
+      padding-top: var(--layout-05);
+    }
 
-      font-size: 1.35rem;
-      line-height: normal;
+    h4 {
+      margin-bottom: var(--spacing-08);
+      padding-top: var(--layout-04);
     }
 
     .table-of-contents {
-      margin-top: 3rem;
-      margin-bottom: 0.5rem;
+      margin-top: var(--layout-05);
+    }
+  }
+
+  @media (min-width: 748px) {
+    .post-content {
+      header,
+      section {
+        margin: 0;
+      }
     }
   }
 </style>
