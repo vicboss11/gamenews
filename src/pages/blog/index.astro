@@ -7,9 +7,7 @@ import parseHtml from '../../scripts/parse-html';
 
 const slug = 'blog';
 
-const res = await fetch(
-  `${WP_SITE}/wp-json/wp/v2/pages?slug=${slug}&_embed`,
-);
+const res = await fetch(`${WP_SITE}/wp-json/wp/v2/pages?slug=${slug}&_embed`);
 
 const [page]: [WpPage] = await res.json();
 

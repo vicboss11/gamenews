@@ -7,9 +7,7 @@ import parseHtml from '../../scripts/parse-html';
 
 const { slug } = Astro.params;
 
-const res = await fetch(
-  `${WP_SITE}/wp-json/wp/v2/posts?slug=${slug}&_embed`,
-);
+const res = await fetch(`${WP_SITE}/wp-json/wp/v2/posts?slug=${slug}&_embed`);
 
 const [post]: [WpPost] = await res.json();
 
