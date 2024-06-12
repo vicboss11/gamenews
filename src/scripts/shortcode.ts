@@ -61,7 +61,7 @@ export function getComponentFromShortcode(shortcode: Shortcode): {
       return {
         component: 'GameNews',
         props: {
-          from: shortcode.attributes?.from || null, // TODO: Add attributes
+          from: shortcode.attributes?.from
         },
       };
     case 'LinkCards': {
@@ -74,7 +74,7 @@ export function getComponentFromShortcode(shortcode: Shortcode): {
       return {
         component: 'Posts',
         props: {
-          category: shortcode.attributes?.category || null,
+          category: shortcode.attributes?.category,
         },
       };
     case 'PostInfo':
@@ -86,8 +86,8 @@ export function getComponentFromShortcode(shortcode: Shortcode): {
       return {
         component: 'TableOfContents',
         props: {
-          title: shortcode.attributes?.title || null,
-          headings: shortcode.attributes?.headings || null,
+          title: shortcode.attributes?.title,
+          headings: shortcode.attributes?.headings,
         },
       };
     default:
