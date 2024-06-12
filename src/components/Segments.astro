@@ -1,6 +1,7 @@
 ---
 import type { Segment } from '../models/interfaces/segments';
 import type { WpPage, WpPost } from '../models/interfaces/wordpress';
+import GameNews from './GameNews.astro';
 import LinkCards from './LinkCards.astro';
 import PostInfo from './PostInfo.astro';
 import TableOfContents from './TableOfContents.astro';
@@ -28,7 +29,7 @@ const { post, html, segments } = data;
         // Se selecciona el componente a renderizar
         // ----------------------------------------
         if (segment.component === 'GameNews') {
-          // TODO: Implementar componente GameNews
+          return <GameNews from={segment.props?.from || null} />;
         }
 
         if (segment.component === 'LinkCards') {
