@@ -1,0 +1,208 @@
+---
+import { Image } from 'astro:assets';
+import type { GameNew } from '../models/interfaces/gamenews';
+
+interface Props {
+  gamenew: GameNew;
+}
+
+const { gamenew }: Props = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/web-brands/*.webp',
+);
+
+const size = 100;
+
+const { brand, brandKey, title, author, publishedAt, url } = gamenew;
+
+const formattedPublishedAt = new Date(publishedAt)
+  .toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  })
+  .split(' de ')
+  .join(' ')
+  .toUpperCase();
+---
+
+<a
+  class={`gamenew gamenew-${brandKey}`}
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Image
+    class="gamenew-brand-logo"
+    src={images[`/src/assets/web-brands/${brandKey}.webp`]()}
+    alt={`Logo de ${brand}`}
+    width={size}
+    height={size}
+    loading="lazy"
+  />
+
+  <h3 class="gamenew-title">{title}</h3>
+
+  <p class="gamenew-info">
+    <span class="gamenew-brand">{brand}</span>
+    <span class="gamenew-author">{author}</span>
+
+    <time class="gamenew-date" datetime={new Date(publishedAt).toISOString()}>
+      {formattedPublishedAt}
+    </time>
+  </p>
+</a>
+
+<style lang="scss">
+  .gamenew {
+    position: relative;
+
+    display: grid;
+    grid-template-areas:
+      'title title'
+      'logo info';
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: var(--spacing-04);
+
+    width: 100%;
+    height: 100%;
+    padding: var(--spacing-04) var(--spacing-06);
+
+    border-radius: var(--layout-01);
+    background-color: var(--second-bg-color);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
+    text-align: left;
+
+    overflow: hidden;
+    transition: transform 300ms ease;
+
+    &.gamenew-3djuegos {
+      --color-brand: rgba(255, 1, 0, 1);
+    }
+
+    &.gamenew-anaitgames {
+      --color-brand: rgba(227, 68, 70, 1);
+    }
+
+    &.gamenew-areajugones {
+      --color-brand: rgba(254, 222, 26, 1);
+    }
+
+    &.gamenew-eurogamer {
+      --color-brand: rgba(1, 133, 204, 1);
+    }
+
+    &.gamenew-hobbyconsolas {
+      --color-brand: rgba(2, 169, 249, 1);
+    }
+
+    &.gamenew-ign {
+      --color-brand: rgba(194, 20, 18, 1);
+    }
+
+    &.gamenew-meristation {
+      --color-brand: rgba(253, 112, 1, 1);
+    }
+
+    &.gamenew-vandal {
+      --color-brand: rgba(40, 75, 91, 1);
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      left: 0;
+
+      width: 0.6rem;
+      height: 100%;
+
+      background-color: var(--color-brand);
+    }
+
+    &:hover {
+      transform: scale(1.025);
+    }
+  }
+
+  .gamenew-brand-logo {
+    grid-area: logo;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: var(--spacing-03);
+  }
+
+  .gamenew-title {
+    grid-area: title;
+
+    margin: auto 0;
+
+    font-size: calc(var(--h3-size) / 1.5);
+    font-weight: 600;
+    text-wrap: pretty;
+  }
+
+  .gamenew-info {
+    grid-area: info;
+
+    display: grid;
+    grid-template-areas:
+      'brand .'
+      'author date';
+    column-gap: var(--spacing-03);
+
+    font-size: 0.75rem;
+    font-weight: 300;
+  }
+
+  .gamenew-brand {
+    grid-area: brand;
+
+    font-weight: 500;
+  }
+
+  .gamenew-author {
+    grid-area: author;
+
+    font-weight: 400;
+  }
+
+  .gamenew-date {
+    grid-area: date;
+
+    margin-left: auto;
+  }
+
+  @media (min-width: 540px) {
+    .gamenew {
+      grid-template-areas:
+        'logo title'
+        'logo info';
+      gap: var(--spacing-05);
+    }
+
+    .gamenew-brand-logo {
+      width: 100px;
+      height: 100px;
+    }
+
+    .gamenew-info {
+      display: flex;
+      gap: var(--spacing-03);
+
+      font-size: 0.85rem;
+    }
+
+    .gamenew-author {
+      &::before {
+        content: '|';
+        margin-right: var(--spacing-03);
+      }
+    }
+  }
+</style>
