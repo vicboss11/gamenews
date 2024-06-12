@@ -1,10 +1,15 @@
 [vars]
-APP_NAME = "GameNews"
+NODE_ENV = "local"
+APP_NAME = "GameNewsLOCAL"
 GAMENEWS_API = "http://localhost:3000"
-WP_SITE = "gamenews.programacionavanzadaweb.com"
+WP_SITE = "https://gamenews.programacionavanzadaweb.com"
 
 [env.develop.vars]
-WP_SITE = "gamenews.programacionavanzadaweb.com"
+NODE_ENV = "development"
+APP_NAME = "GameNewsDEV"
+WP_SITE = "https://gamenews.programacionavanzadaweb.com"
 
 [env.production.vars]
-WP_SITE = "gamenews.programacionavanzadaweb.com"
+NODE_ENV = "production"
+APP_NAME = "GameNews"
+WP_SITE = "https://gamenews.programacionavanzadaweb.com"
