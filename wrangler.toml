@@ -1,5 +1,6 @@
 [vars]
 APP_NAME = "GameNews"
+GAMENEWS_API = "http://localhost:3000"
 WP_SITE = "gamenews.programacionavanzadaweb.com"
 
 [env.develop.vars]
