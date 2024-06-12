@@ -61,7 +61,7 @@ export function getComponentFromShortcode(shortcode: Shortcode): {
       return {
         component: 'GameNews',
         props: {
-          from: shortcode.attributes?.from
+          from: shortcode.attributes?.from,
         },
       };
     case 'LinkCards': {
