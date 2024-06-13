@@ -1,4 +1,3 @@
-import { Image } from 'astro:assets';
 import type { GameNew } from '../../models/interfaces/gamenews';
 import type { ReactElement } from 'react';
 import './GameNew.scss';
