@@ -4,4 +4,4 @@ export const {
   GAMENEWS_API,
   GAMENEWS_TOKEN,
   WP_SITE,
-} = import.meta.env;
+} = import.meta.env || process.env;
