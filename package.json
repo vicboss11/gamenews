@@ -3,10 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "wrangler types && astro dev",
-    "start": "wrangler types && astro dev",
-    "build": "wrangler types && astro check && astro build",
-    "preview": "wrangler types && astro preview",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write --ignore-unknown ./src"
   },
@@ -24,7 +24,6 @@
     "eslint-plugin-astro": "^1.2.0",
     "prettier": "^3.3.1",
     "prettier-plugin-astro": "^0.14.0",
-    "sass": "^1.77.4",
-    "wrangler": "^3.59.0"
+    "sass": "^1.77.4"
   }
 }
