@@ -1,0 +1,88 @@
+.gamenews {
+  --color-brand: linear-gradient(45deg, #84b4b2, #f48c9d 90%);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: var(--layout-02);
+
+  width: 100%;
+  max-width: 968px;
+  margin: var(--layout-04) auto;
+  padding: 0 var(--lateral-spacing);
+
+  &.gamenews-3djuegos {
+    --color-brand: rgba(255, 1, 0, 1);
+  }
+
+  &.gamenews-anaitgames {
+    --color-brand: rgba(227, 68, 70, 1);
+  }
+
+  &.gamenews-areajugones {
+    --color-brand: rgba(254, 222, 26, 1);
+
+    .gamenews-more-news-btn {
+      color: #213547;
+    }
+  }
+
+  &.gamenews-eurogamer {
+    --color-brand: rgba(1, 133, 204, 1);
+  }
+
+  &.gamenews-hobbyconsolas {
+    --color-brand: rgba(2, 169, 249, 1);
+  }
+
+  &.gamenews-ign {
+    --color-brand: rgba(194, 20, 18, 1);
+  }
+
+  &.gamenews-meristation {
+    --color-brand: rgba(253, 112, 1, 1);
+  }
+
+  &.gamenews-vandal {
+    --color-brand: rgba(40, 75, 91, 1);
+  }
+}
+
+.gamenews-more-news-btn {
+  align-self: baseline;
+
+  width: fit-content;
+  margin: 0 auto;
+  padding: var(--spacing-05) var(--spacing-08);
+
+  border: none;
+  border-radius: var(--spacing-04);
+  background: var(--color-brand);
+  color: #f8f9fa;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
+  font-size: var(--layout-01);
+  font-weight: 600;
+
+  opacity: 1;
+  transition: opacity 350ms ease;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.gamenews--is-loading {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+@media (min-width: 540px) {
+  .gamenews {
+    grid-auto-rows: 1fr;
+  }
+
+  .gamenews-more-news-btn {
+    margin-top: var(--spacing-06);
+  }
+}

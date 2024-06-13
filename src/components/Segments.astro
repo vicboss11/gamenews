@@ -1,7 +1,8 @@
 ---
+import { GAMENEWS_API, GAMENEWS_TOKEN } from '../config/config';
+import GameNews from '../islands/GameNews/GameNews';
 import type { Segment } from '../models/interfaces/segments';
 import type { WpPage, WpPost } from '../models/interfaces/wordpress';
-import GameNews from './GameNews.astro';
 import LinkCards from './LinkCards.astro';
 import PostInfo from './PostInfo.astro';
 import TableOfContents from './TableOfContents.astro';
@@ -29,7 +30,16 @@ const { post, html, segments } = data;
         // Se selecciona el componente a renderizar
         // ----------------------------------------
         if (segment.component === 'GameNews') {
-          return <GameNews from={segment.props?.from || null} />;
+          const from = segment.props?.from || null;
+
+          const api = {
+            url: from
+              ? `${GAMENEWS_API}/news/${from}/paginated`
+              : `${GAMENEWS_API}/news/paginated`,
+            token: GAMENEWS_TOKEN,
+          };
+
+          return <GameNews client:load from={from} api={api} />;
         }
 
         if (segment.component === 'LinkCards') {
