@@ -6,14 +6,11 @@ interface Props {
   gamenew: GameNew;
 }
 
+const imageSize = 100;
+
 function GameNew({ gamenew }: Props): ReactElement {
   const { brand, brandKey, title, author, publishedAt, url } = gamenew;
 
-  const images = import.meta.glob<{ default: ImageMetadata }>(
-    '/src/assets/web-brands/*.webp',
-  );
-
-  const size = 100;
   const formattedPublishedAt = new Date(publishedAt)
     .toLocaleDateString('es-ES', {
       year: 'numeric',
@@ -35,8 +32,8 @@ function GameNew({ gamenew }: Props): ReactElement {
         className="gamenew-brand-logo"
         src={`/src/assets/web-brands/${brandKey}.webp`}
         alt={`Logo de ${brand}`}
-        width={size}
-        height={size}
+        width={imageSize}
+        height={imageSize}
         loading="lazy"
       />
 
