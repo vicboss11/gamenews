@@ -48,7 +48,7 @@ const formattedPublishedAt = new Date(publishedAt)
     <span class="gamenew-brand">{brand}</span>
     <span class="gamenew-author">{author}</span>
 
-    <time class="gamenew-date" datetime={new Date(publishedAt).toISOString()}>
+    <time class="gamenew-date" datetime={publishedAt.toString()}>
       {formattedPublishedAt}
     </time>
   </p>
