@@ -18,3 +18,26 @@ const { appName, title }: Props = Astro.props;
 
   <Footer appName={appName} />
 </Layout>
+
+<style lang="scss" is:global>
+  .page-content {
+    & > header,
+    & > section {
+      max-width: 1280px;
+      margin: 0 auto;
+
+      text-align: center;
+
+      margin: var(--layout-04) auto;
+      padding: 0 var(--lateral-spacing);
+
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: var(--layout-02);
+      }
+    }
+  }
+</style>
