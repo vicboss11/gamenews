@@ -1,0 +1,37 @@
+---
+import { WP_SITE } from '../config/config';
+import { WpCategory, WpPost } from '../models/interfaces/wordpress';
+import PostCard from './PostCard.astro';
+
+interface Props {
+  category: string;
+}
+
+let { category }: Props = Astro.props;
+
+const wpCategoriesRes = await fetch(`${WP_SITE}/wp-json/wp/v2/categories`);
+const wpCategories: WpCategory[] = await wpCategoriesRes.json();
+
+const wpCategory = wpCategories.find((cat) => cat.slug === category);
+// Si no se encuentra la categoría, se obtienen todos los posts
+const postsUrl =
+  category === ''
+    ? `${WP_SITE}/wp-json/wp/v2/posts?_embed`
+    : `${WP_SITE}/wp-json/wp/v2/posts?categories=${wpCategory?.id}&_embed`;
+
+const wpPostsRes = await fetch(postsUrl);
+const wpPosts: WpPost[] = await wpPostsRes.json();
+---
+
+<section class="post-list">
+  {wpPosts.map((post) => <PostCard category={category} post={post} />)}
+</section>
+
+<style>
+  .post-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: var(--layout-01);
+  }
+</style>
