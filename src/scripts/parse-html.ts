@@ -133,4 +133,43 @@ function generateIdFromText(text: string): string {
     .replace(/\s+/g, '-');
 }
 
+export function extractCleanSectionContent(html: string): string {
+  const sectionRegex =
+    /<section\b[^>]*class\s*=\s*["'][^"']*\bpost-description\b[^"']*["'][^>]*>(.*?)<\/section>|<section\b[^>]*>(.*?)<\/section>/is;
+
+  const matches = html.match(sectionRegex);
+
+  let sectionContent = '';
+
+  if (matches) {
+    const postDescriptionSection = matches.find((match) =>
+      /class\s*=\s*["'][^"']*\bpost-description\b[^"']*["']/.test(match),
+    );
+
+    if (postDescriptionSection) {
+      sectionContent = postDescriptionSection;
+    } else {
+      sectionContent = matches[0];
+    }
+  } else {
+    return '';
+  }
+
+  if (sectionContent) {
+    const contentRegex = /<section\b[^>]*>(.*?)<\/section>/is;
+    const contentMatch = sectionContent.match(contentRegex);
+
+    if (contentMatch) {
+      sectionContent = contentMatch[1];
+    }
+
+    const strippedContent = sectionContent.replace(/<\/?[^>]+(>|$)/g, '');
+    const cleanedContent = strippedContent.replace(/\[.*?\]/g, '');
+
+    return cleanedContent;
+  }
+
+  return '';
+}
+
 export default parseHtml;
