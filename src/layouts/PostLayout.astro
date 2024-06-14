@@ -27,9 +27,11 @@ const { appName, title }: Props = Astro.props;
     width: 100%;
     margin: 0 auto;
 
-    header,
-    section {
-      margin: 0 var(--lateral-spacing);
+    & > header,
+    & > section {
+      max-width: 1280px;
+      margin: var(--layout-04) auto;
+      padding: 0 var(--lateral-spacing);
     }
 
     p {
