@@ -1,0 +1,39 @@
+---
+import LinkCards from '../components/LinkCards.astro';
+import { APP_NAME } from '../config/config';
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout appName={APP_NAME} title="¡Ups! La Página que Buscas No Existe">
+  <main class="page-content">
+    <section>
+      <h1>¡Ups! La página que buscas no existe</h1>
+
+      <p>
+        Lo sentimos, pero la página que buscas no existe. Puede que la hayamos
+        movido, eliminado o que hayas escrito mal la dirección.
+      </p>
+    </section>
+
+    <section>
+      <h2>Enlaces de interés</h2>
+
+      <LinkCards />
+    </section>
+  </main>
+</PageLayout>
+
+<style lang="scss">
+  p {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--layout-01) 0;
+  }
+
+  @media (min-width: 540px) {
+    p {
+      padding: var(--layout-03) 0;
+    }
+  }
+</style>

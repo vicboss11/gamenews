@@ -2,18 +2,46 @@
 import PageContent from '../components/PageContent.astro';
 import { WP_SITE, APP_NAME } from '../config/config';
 import PageLayout from '../layouts/PageLayout.astro';
+import { Segment } from '../models/interfaces/segments';
 import type { WpPage } from '../models/interfaces/wordpress';
 import parseHtml from '../scripts/parse-html';
 
 const { slug } = Astro.params;
 
-const res = await fetch(`${WP_SITE}/wp-json/wp/v2/pages?slug=${slug}&_embed`);
+let page: WpPage | null = null;
+let html = '';
+let segments: Segment[] = [];
 
-const [page]: [WpPage] = await res.json();
+try {
+  const res = await fetch(`${WP_SITE}/wp-json/wp/v2/pages?slug=${slug}&_embed`);
 
-const { html, segments } = parseHtml(page.content.rendered);
+  if (!res.ok) {
+    throw new Error('Page not found');
+  }
+
+  const [fetchedPage]: [WpPage] = await res.json();
+
+  if (!fetchedPage) {
+    throw new Error('Page not found');
+  }
+
+  page = fetchedPage;
+
+  const parsedContent = parseHtml(page.content.rendered);
+
+  html = parsedContent.html;
+  segments = parsedContent.segments;
+} catch (error) {
+  return Astro.redirect('/404');
+}
 ---
 
-<PageLayout appName={APP_NAME} title={page.title.rendered}>
-  <PageContent page={page} html={html} segments={segments} />
-</PageLayout>
+{
+  page ? (
+    <PageLayout appName={APP_NAME} title={page.title.rendered}>
+      <PageContent page={page} html={html} segments={segments} />
+    </PageLayout>
+  ) : (
+    <p>Redirigiendo a la página 404...</p>
+  )
+}
