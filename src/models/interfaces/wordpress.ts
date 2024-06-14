@@ -1,4 +1,5 @@
 export interface WpPage {
+  id: number;
   date: string;
   modified: string;
   slug: string;
@@ -32,6 +33,9 @@ export interface WpAuthor {
 }
 
 export interface WpCategory {
+  id: number;
+  count: number;
+  description: string;
   name: string;
   slug: string;
   taxonomy: 'category';
