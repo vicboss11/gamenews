@@ -1,6 +1,6 @@
 ---
 import type { WpPost } from '../models/interfaces/wordpress';
-import { getReadingTime } from '../scripts/post';
+import { getFormattedDate, getReadingTime } from '../scripts/post';
 
 interface Props {
   post: WpPost;
@@ -10,13 +10,7 @@ interface Props {
 const { post, html }: Props = Astro.props;
 
 const author = post._embedded.author[0].name;
-
-const modifiedDate = new Date(post.modified).toLocaleDateString('es-ES', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
-
+const modifiedDate = getFormattedDate(post.modified);
 const { minutes: minutesToRead } = getReadingTime(html);
 const minuteString = minutesToRead === 1 ? 'minuto' : 'minutos';
 ---
