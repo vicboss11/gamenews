@@ -30,6 +30,7 @@ const description = extractCleanSectionContent(html);
 
   <footer class="post-card-footer">
     <section class="post-card-info">
+      <span class="post-card-category">{category}</span>
       <span class="post-card-author">{author}</span>
       <span class="post-card-date">{modifiedDate}</span>
     </section>
@@ -114,6 +115,19 @@ const description = extractCleanSectionContent(html);
 
     display: flex;
     flex-direction: column;
+  }
+
+  .post-card-category {
+    width: fit-content;
+    padding: var(--spacing-01) var(--spacing-03);
+    margin-bottom: var(--spacing-05);
+
+    color: #fff;
+    background-image: linear-gradient(45deg, #84b4b2, #f48c9d 100%);
+    border-radius: var(--spacing-04);
+
+    font-size: 0.8rem;
+    font-weight: 600;
   }
 
   .post-card-author {
