@@ -71,9 +71,13 @@
   }
 }
 
+.gamenews-error-message,
+.gamenews-no-news,
 .gamenews--is-loading {
   width: fit-content;
   margin: 0 auto;
+
+  text-align: center;
 }
 
 @media (min-width: 540px) {

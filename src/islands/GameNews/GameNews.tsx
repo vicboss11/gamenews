@@ -64,7 +64,7 @@ function GameNews({ from, api }: Props) {
 
   return (
     <section className={`gamenews${brandClass}`}>
-      {error && <p className="error-message">{error}</p>}
+      {error && <p className="gamenews-error-message">{error}</p>}
 
       {gamenews.length > 0
         ? gamenews.map((gamenew) => (
@@ -72,7 +72,11 @@ function GameNews({ from, api }: Props) {
           ))
         : initialLoadComplete &&
           !loading &&
-          !hasMore && <p>No hay noticias. Vuelve más tarde</p>}
+          !hasMore && (
+            <p className="gamenews-no-news">
+              No hay noticias. Vuelve más tarde
+            </p>
+          )}
 
       {hasMore && !loading && (
         <button className="gamenews-more-news-btn" onClick={fetchGamenews}>
@@ -80,10 +84,7 @@ function GameNews({ from, api }: Props) {
         </button>
       )}
 
-      {loading ||
-        (!initialLoadComplete && (
-          <p className="gamenews--is-loading">Cargando noticias...</p>
-        ))}
+      {loading && <p className="gamenews--is-loading">Cargando noticias...</p>}
     </section>
   );
 }
