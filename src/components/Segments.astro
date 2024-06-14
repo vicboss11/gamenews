@@ -5,6 +5,7 @@ import type { Segment } from '../models/interfaces/segments';
 import type { WpPage, WpPost } from '../models/interfaces/wordpress';
 import LinkCards from './LinkCards.astro';
 import PostInfo from './PostInfo.astro';
+import PostList from './PostList.astro';
 import TableOfContents from './TableOfContents.astro';
 
 interface Props {
@@ -44,6 +45,10 @@ const { post, html, segments } = data;
 
         if (segment.component === 'LinkCards') {
           return <LinkCards />;
+        }
+
+        if (segment.component === 'PostList') {
+          return <PostList category={segment.props?.category || ''} />;
         }
 
         if (segment.component === 'PostInfo') {

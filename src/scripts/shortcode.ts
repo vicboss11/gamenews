@@ -72,7 +72,7 @@ export function getComponentFromShortcode(shortcode: Shortcode): {
     }
     case 'Posts':
       return {
-        component: 'Posts',
+        component: 'PostList',
         props: {
           category: shortcode.attributes?.category,
         },
