@@ -1,3 +1,11 @@
+export function getFormattedDate(date: string) {
+  return new Date(date).toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
 export function getReadingTime(html: string): {
   minutes: number;
   seconds: number;
