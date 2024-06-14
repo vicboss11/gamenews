@@ -26,14 +26,12 @@ function GameNews({ from, api }: Props) {
   const [skip, setSkip] = useState(0);
   const [hasMore, setHasMore] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
 
   const fetchGamenews = async () => {
     if (loading) return;
 
     setLoading(true);
-    setError(null);
 
     try {
       const res = await fetch(`${url}?skip=${skip}&take=${newsPerPage}`, {
@@ -51,7 +49,6 @@ function GameNews({ from, api }: Props) {
       setHasMore(result.hasMore);
       setInitialLoadComplete(true);
     } catch (error) {
-      setError((error as Error).message);
       setInitialLoadComplete(true);
     } finally {
       setLoading(false);
@@ -64,8 +61,6 @@ function GameNews({ from, api }: Props) {
 
   return (
     <section className={`gamenews${brandClass}`}>
-      {error && <p className="gamenews-error-message">{error}</p>}
-
       {gamenews.length > 0
         ? gamenews.map((gamenew) => (
             <GameNew key={gamenew.id} gamenew={gamenew} />
