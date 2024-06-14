@@ -21,6 +21,11 @@ function GameNew({ gamenew }: Props): ReactElement {
     .join(' ')
     .toUpperCase();
 
+  const getBrandLogo = (brandKey: string) => {
+    return new URL(`../../assets/web-brands/${brandKey}.webp`, import.meta.url)
+      .href;
+  };
+
   return (
     <a
       className={`gamenew gamenew-${brandKey}`}
@@ -30,7 +35,7 @@ function GameNew({ gamenew }: Props): ReactElement {
     >
       <img
         className="gamenew-brand-logo"
-        src={`/src/assets/web-brands/${brandKey}.webp`}
+        src={getBrandLogo(brandKey)}
         alt={`Logo de ${brand}`}
         width={imageSize}
         height={imageSize}
