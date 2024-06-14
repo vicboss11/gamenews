@@ -1,0 +1,158 @@
+---
+import { WpPost } from '../models/interfaces/wordpress';
+import { extractCleanSectionContent } from '../scripts/parse-html';
+import { getFormattedDate } from '../scripts/post';
+
+interface Props {
+  category: string;
+  post: WpPost;
+}
+
+const { category, post }: Props = Astro.props;
+
+const html = post.content.rendered;
+const title = post.title.rendered;
+const author = post._embedded.author[0].name;
+const modifiedDate = getFormattedDate(post.modified);
+const description = extractCleanSectionContent(html);
+---
+
+<article class="post-card">
+  <header class="post-card-header">
+    <h2>{title}</h2>
+  </header>
+
+  <section class="post-card-content">
+    <p>
+      {description}
+    </p>
+  </section>
+
+  <footer class="post-card-footer">
+    <section class="post-card-info">
+      <span class="post-card-author">{author}</span>
+      <span class="post-card-date">{modifiedDate}</span>
+    </section>
+
+    <a class="post-card-link" href={`/${category}/${post.slug}`}>Leer más</a>
+  </footer>
+</article>
+
+<style lang="scss">
+  .post-card {
+    --bg-color: rgba(255, 255, 255, 0.85);
+
+    position: relative;
+
+    display: grid;
+    grid-template-areas: 'header' 'content' 'footer';
+    flex-direction: column;
+    gap: 1rem;
+
+    width: 100%;
+    max-width: 454px;
+    padding: var(--layout-01);
+    margin: 0 auto;
+
+    border: var(--spacing-02) solid var(--second-bg-color);
+    border-radius: var(--layout-01);
+    background-color: var(--bg-color);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
+    text-align: left;
+
+    overflow: hidden;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -10;
+
+      background-image: linear-gradient(45deg, #84b4b2, #f48c9d 70%);
+      opacity: 0.8;
+    }
+  }
+
+  .post-card-header {
+    grid-area: header;
+
+    & > h2 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+  }
+
+  .post-card-content {
+    grid-area: content;
+
+    & > p {
+      display: -webkit-box;
+      width: 100%;
+      max-width: 400px;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .post-card-footer {
+    grid-area: footer;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .post-card-info {
+    margin-top: auto;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-card-author {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .post-card-date {
+    font-size: 0.95rem;
+  }
+
+  .post-card-link {
+    margin-top: auto;
+
+    color: #f48c9d;
+    font-weight: bolder;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .post-card {
+      --bg-color: rgba(20, 20, 20, 0.95);
+    }
+  }
+
+  :root {
+    &.light-theme {
+      .post-card {
+        --bg-color: rgba(255, 255, 255, 0.85);
+      }
+    }
+
+    &.dark-theme {
+      .post-card {
+        --bg-color: rgba(20, 20, 20, 0.95);
+      }
+    }
+  }
+</style>
