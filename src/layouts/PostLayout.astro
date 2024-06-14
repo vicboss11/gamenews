@@ -23,15 +23,15 @@ const { appName, title }: Props = Astro.props;
 
 <style lang="scss" is:global>
   .post-content {
-    max-width: 700px;
+    max-width: 764px;
     width: 100%;
     margin: 0 auto;
+    padding: 0 var(--lateral-spacing);
 
     & > header,
     & > section {
       max-width: 1280px;
       margin: var(--layout-04) auto;
-      padding: 0 var(--lateral-spacing);
     }
 
     p {
