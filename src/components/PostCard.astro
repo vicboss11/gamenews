@@ -15,11 +15,14 @@ const title = post.title.rendered;
 const author = post._embedded.author[0].name;
 const modifiedDate = getFormattedDate(post.modified);
 const description = extractCleanSectionContent(html);
+const href = `/${category}/${post.slug}`;
 ---
 
 <article class="post-card">
   <header class="post-card-header">
-    <h2>{title}</h2>
+    <a href={href}>
+      <h2>{title}</h2>
+    </a>
   </header>
 
   <section class="post-card-content">
@@ -35,7 +38,7 @@ const description = extractCleanSectionContent(html);
       <span class="post-card-date">{modifiedDate}</span>
     </section>
 
-    <a class="post-card-link" href={`/${category}/${post.slug}`}>Leer más</a>
+    <a class="post-card-link" href={href}>Leer más</a>
   </footer>
 </article>
 
@@ -82,7 +85,7 @@ const description = extractCleanSectionContent(html);
   .post-card-header {
     grid-area: header;
 
-    & > h2 {
+    h2 {
       font-size: 1.5rem;
       margin: 0;
     }
