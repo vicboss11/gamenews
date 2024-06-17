@@ -11,7 +11,9 @@ const { appName } = Astro.props;
 <header class="header">
   <section class="header-container">
     <section class="header-company">
-      <span>{appName}</span>
+      <a href="/">
+        <span>{appName}</span>
+      </a>
     </section>
 
     <Navbar />
