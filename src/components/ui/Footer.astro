@@ -1,235 +1,52 @@
 ---
+import { PERSONAL_WEBPAGE } from '../../constants/constants';
+
 interface Props {
   appName: string;
 }
 
 const { appName } = Astro.props;
+
+const date = new Date().getFullYear();
 ---
 
 <footer class="footer">
-  <section class="footer-section">
-    <article>
-      <form class="footer-subscribe" onsubmit="(e) => e.preventDefault()">
-        <span>¡Suscríbete a nuestra newsletter!</span>
+  <section class="footer-content">
+    <span class="footer-company">{appName}</span>
 
-        <div class="footer-subscribe-control">
-          <input
-            class="footer-subscribe-email"
-            type="email"
-            placeholder="Email"
-          />
+    <span class="footer-copyright">© {date}</span>
 
-          <button
-            class="footer-subscribe-submit-btn"
-            type="submit"
-            role="button"
-          >
-            <i class="ti ti-arrow-right"></i>
-          </button>
-        </div>
-      </form>
-
-      <aside class="footer-related-pages">
-        <a class="footer-link" href="#">SEO básico</a>
-        <a class="footer-link" href="#">Fragmentos enriquecidos</a>
-      </aside>
-
-      <aside class="footer-social">
-        <a class="footer-link" href="#">
-          <i class="ti ti-brand-x"></i>
-        </a>
-
-        <a class="footer-link" href="#">
-          <i class="ti ti-brand-instagram"></i>
-        </a>
-
-        <a class="footer-link" href="#">
-          <i class="ti ti-brand-facebook"></i>
-        </a>
-
-        <a class="footer-link" href="#">
-          <i class="ti ti-brand-linkedin"></i>
-        </a>
-      </aside>
-    </article>
-  </section>
-
-  <section class="footer-section">
-    <article>
-      <aside class="footer-miscellany">
-        <a class="footer-link" href="#">Sobre nosostros</a>
-        <a class="footer-link" href="#">Contacto</a>
-        <a class="footer-link" href="#">Privacidad</a>
-        <a class="footer-link" href="#">Cookies</a>
-      </aside>
-
-      <aside class="footer-company">
-        <span>{appName}</span>
-      </aside>
-
-      <aside class="footer-copyright">
-        <span>© 2024. Todos los derechos reservados.</span>
-      </aside>
-    </article>
+    <span class="footer-made-by">
+      Desarrollado con ❤️ por
+      <a href={PERSONAL_WEBPAGE} target="_blank" rel="noopener noreferrer">
+        Víctor Albán
+      </a>
+    </span>
   </section>
 </footer>
 
 <style lang="scss" is:global>
   .footer {
-    display: flex;
-    flex-direction: column;
-
     background-color: var(--second-bg-color);
   }
 
-  .footer-section {
-    display: flex;
-    flex-direction: column;
+  .footer-content {
+    display: grid;
+    grid-template-areas: 'company' 'copyright' 'made-by';
+    grid-template-columns: 1fr;
+    place-content: center;
+    gap: var(--spacing-03);
 
-    & > article {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: var(--layout-02) var(--lateral-spacing);
 
-      width: 100%;
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 2rem var(--lateral-spacing);
-    }
-
-    &:first-of-type {
-      border-bottom: 4px solid var(--first-bg-color);
-    }
-  }
-
-  .footer-link {
-    height: fit-content;
-
-    color: inherit;
-    font-size: 1.05rem;
-    font-weight: 400;
-    text-decoration: none;
-
-    opacity: 0.5;
-    transition: opacity 250ms;
-
-    cursor: pointer;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  .footer-subscribe {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-
-    font-size: 1rem;
-    font-weight: bold;
-  }
-
-  .footer-subscribe-control {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    width: fit-content;
-  }
-
-  .footer-subscribe-email {
-    display: block;
-
-    height: 45px;
-    padding: 0.375em 0.75rem;
-    padding-right: calc(0.375em + 2.4em);
-
-    color: #495057;
-    background-color: #e6e6e6;
-    background-clip: padding-box;
-    border: none;
-    border-radius: 0.25rem;
-
-    font-size: 1rem;
-    font-weight: 400;
-
-    &:focus {
-      outline: none;
-    }
-
-    &::placeholder {
-      font-weight: bold;
-      opacity: 0.8;
-    }
-  }
-
-  .footer-subscribe-submit-btn {
-    position: absolute;
-    right: 1rem;
-
-    color: #141414;
-    background: none;
-    border: none;
-
-    font-size: 1.25rem;
-
-    opacity: 0.6;
-    transition: opacity 250ms;
-
-    cursor: pointer;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  .footer-related-pages {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .footer-social {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1.25rem;
-
-    .footer-link {
-      display: grid;
-      place-content: center;
-
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: var(--third-bg-color);
-      font-size: 1.25rem;
-      opacity: 0.6;
-      transition: opacity 500ms;
-    }
-
-    .footer-link:hover {
-      opacity: 1;
-    }
-  }
-
-  .footer-miscellany {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1.25rem;
+    text-align: center;
   }
 
   .footer-company {
-    display: grid;
-    place-content: center;
+    grid-area: company;
 
     font-size: 2rem;
     font-weight: bold;
@@ -240,32 +57,62 @@ const { appName } = Astro.props;
   }
 
   .footer-copyright {
-    display: grid;
-    place-content: center;
+    grid-area: copyright;
 
-    font-size: 0.8rem;
-    opacity: 0.8;
+    font-size: 0.9rem;
   }
 
-  @media (min-width: 920px) {
-    .footer-section > article {
-      display: grid;
+  .footer-made-by {
+    grid-area: made-by;
+
+    text-align: center;
+
+    & > a {
+      display: inline-block;
+
+      background-image: linear-gradient(45deg, #eb7085, #4dd3cc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      font-weight: 600;
+
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .footer-made-by > a {
+      background-image: linear-gradient(45deg, #f48c9d, #84b4b2 100%);
+    }
+  }
+
+  :root {
+    &.light-theme .footer-made-by > a {
+      background-image: linear-gradient(45deg, #eb7085, #4dd3cc 100%);
+    }
+
+    &.dark-theme .footer-made-by > a {
+      background-image: linear-gradient(45deg, #f48c9d, #84b4b2 100%);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .footer-content {
+      place-items: center;
+
+      grid-template-areas: 'copyright company made-by';
       grid-template-columns: repeat(3, 1fr);
-      column-gap: 1rem;
     }
 
-    .footer-related-pages,
-    .footer-company {
-      margin: 0 auto;
-    }
-
-    .footer-subscribe,
-    .footer-miscellany {
+    .footer-copyright {
       margin-right: auto;
     }
 
-    .footer-social,
-    .footer-copyright {
+    .footer-made-by {
       margin-left: auto;
     }
   }
