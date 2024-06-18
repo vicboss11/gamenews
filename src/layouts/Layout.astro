@@ -26,10 +26,40 @@ const { title }: Props = Astro.props;
       rel="stylesheet"
     />
   </head>
+
   <body>
     <slot />
+
+    <button id="backToTopBtn">
+      <i class="ti ti-chevron-up"></i>
+    </button>
   </body>
 </html>
+
+<script type="module">
+  const topValue = 50;
+  const backToTopButton = document.getElementById('backToTopBtn');
+
+  window.onscroll = function () {
+    scrollToTopButtonHandler();
+  };
+
+  function scrollToTopButtonHandler() {
+    if (
+      document.body.scrollTop > topValue ||
+      document.documentElement.scrollTop > topValue
+    ) {
+      backToTopButton.style.display = 'block';
+    } else {
+      backToTopButton.style.display = 'none';
+    }
+  }
+
+  backToTopButton.addEventListener('click', function () {
+    document.body.scrollTop = 0; // Safari
+    document.documentElement.scrollTop = 0; // Chrome, Firefox, IE y Opera
+  });
+</script>
 
 <style lang="scss" is:global>
   :root {
@@ -126,6 +156,8 @@ const { title }: Props = Astro.props;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+
+    scroll-behavior: smooth;
   }
 
   * {
@@ -198,6 +230,31 @@ const { title }: Props = Astro.props;
 
   .footer {
     margin-top: auto;
+  }
+
+  #backToTopBtn {
+    position: fixed;
+    bottom: var(--layout-01);
+    right: var(--layout-01);
+
+    display: none;
+
+    padding: var(--spacing-03);
+
+    border: 1px solid var(--first-bg-color);
+    border-radius: 50%;
+    background-color: var(--second-bg-color);
+    opacity: 0.75;
+
+    transition: opacity 250ms ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    i {
+      font-size: 2rem;
+    }
   }
 
   @media (prefers-color-scheme: dark) {
