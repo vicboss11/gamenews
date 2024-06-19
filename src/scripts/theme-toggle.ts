@@ -1,30 +1,22 @@
-function addThemeToggle() {
-  document.addEventListener('DOMContentLoaded', () => {
-    const lightDarkBtn: HTMLButtonElement | null =
-      document.querySelector('.light-dark-btn');
+const lightDarkButton: HTMLButtonElement | null =
+  document.querySelector('.light-dark-button');
 
-    const lightDarkCheckbox: HTMLInputElement | null = document.querySelector(
-      '.light-dark-checkbox',
-    );
+const lightDarkCheckbox: HTMLInputElement | null = document.querySelector(
+  '.light-dark-checkbox',
+);
 
-    const prefersLightTheme = window.matchMedia(
-      '(prefers-color-scheme: light)',
-    );
+const prefersLightTheme = window.matchMedia('(prefers-color-scheme: light)');
 
-    if (lightDarkCheckbox && lightDarkBtn) {
-      lightDarkCheckbox.checked = !prefersLightTheme.matches;
+if (lightDarkCheckbox && lightDarkButton) {
+  lightDarkCheckbox.checked = !prefersLightTheme.matches;
 
-      lightDarkBtn.addEventListener('click', () => {
-        lightDarkCheckbox.checked = !lightDarkCheckbox.checked;
+  lightDarkButton.addEventListener('click', () => {
+    lightDarkCheckbox.checked = !lightDarkCheckbox.checked;
 
-        if (lightDarkCheckbox.checked) {
-          document.documentElement.className = 'dark-theme';
-        } else {
-          document.documentElement.className = 'light-theme';
-        }
-      });
+    if (lightDarkCheckbox.checked) {
+      document.documentElement.className = 'dark-theme';
+    } else {
+      document.documentElement.className = 'light-theme';
     }
   });
 }
-
-export default addThemeToggle;

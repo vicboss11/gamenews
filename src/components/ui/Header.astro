@@ -21,7 +21,7 @@ const { appName } = Astro.props;
     <section class="header-actions">
       <input class="light-dark-checkbox" type="checkbox" checked />
 
-      <button class="light-dark-btn" type="button">
+      <button class="light-dark-button" type="button">
         <i class="ti ti-sun"></i>
         <i class="ti ti-moon"></i>
       </button>
@@ -29,11 +29,7 @@ const { appName } = Astro.props;
   </section>
 </header>
 
-<script>
-  import addThemeToggle from '../../scripts/theme-toggle';
-
-  addThemeToggle();
-</script>
+<script src="../../scripts/theme-toggle.ts"></script>
 
 <style lang="scss" is:global>
   .header {
@@ -94,7 +90,7 @@ const { appName } = Astro.props;
     display: none;
   }
 
-  .light-dark-btn {
+  .light-dark-button {
     display: grid;
     place-content: center;
 
@@ -127,7 +123,7 @@ const { appName } = Astro.props;
   }
 
   @media (prefers-color-scheme: dark) {
-    .light-dark-btn {
+    .light-dark-button {
       .ti-sun {
         display: none;
       }
@@ -139,7 +135,7 @@ const { appName } = Astro.props;
   }
 
   :root {
-    &.light-theme .light-dark-btn {
+    &.light-theme .light-dark-button {
       .ti-sun {
         display: block;
       }
@@ -149,7 +145,7 @@ const { appName } = Astro.props;
       }
     }
 
-    &.dark-theme .light-dark-btn {
+    &.dark-theme .light-dark-button {
       .ti-sun {
         display: none;
       }
