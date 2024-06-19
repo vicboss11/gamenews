@@ -78,8 +78,6 @@ const { appName, title }: Props = Astro.props;
           -webkit-text-fill-color: transparent;
           background-size: 400%;
           background-position: 0%;
-
-          // font-size: 3rem;
         }
 
         p {
@@ -87,8 +85,6 @@ const { appName, title }: Props = Astro.props;
 
           height: fit-content;
           margin-bottom: auto;
-
-          // font-size: 1.15rem;
         }
 
         &::after {
@@ -100,7 +96,7 @@ const { appName, title }: Props = Astro.props;
           background-size: cover;
 
           --size: 300px;
-          width: var(--size);
+          width: 100%;
           height: var(--size);
           margin: 0 auto;
           margin-top: var(--layout-02);
@@ -166,6 +162,13 @@ const { appName, title }: Props = Astro.props;
 
     & > section::after {
       box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  @media (min-width: 340px) {
+    .home-content > header > section::after {
+      width: var(--size);
+      height: var(--size);
     }
   }
 
