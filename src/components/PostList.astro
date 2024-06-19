@@ -24,7 +24,13 @@ const wpPosts: WpPost[] = await wpPostsRes.json();
 ---
 
 <section class="post-list">
-  {wpPosts.map((post) => <PostCard category={category} post={post} />)}
+  {
+    wpPosts.length === 0 ? (
+      <p class="post-list-empty">No se ha encontrado ningún artículo.</p>
+    ) : (
+      wpPosts.map((post) => <PostCard category={category} post={post} />)
+    )
+  }
 </section>
 
 <style>
@@ -33,5 +39,10 @@ const wpPosts: WpPost[] = await wpPostsRes.json();
     grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     grid-auto-rows: 1fr;
     gap: var(--layout-01);
+  }
+
+  .post-list-empty {
+    grid-column: 1 / -1;
+    text-align: center;
   }
 </style>
