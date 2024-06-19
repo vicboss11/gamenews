@@ -30,7 +30,7 @@ const { title }: Props = Astro.props;
   <body>
     <slot />
 
-    <button id="backToTopBtn">
+    <button id="backToTopButton" class="back-to-top-button">
       <i class="ti ti-chevron-up"></i>
     </button>
   </body>
@@ -38,7 +38,7 @@ const { title }: Props = Astro.props;
 
 <script type="module">
   const topValue = 50;
-  const backToTopButton = document.getElementById('backToTopBtn');
+  const backToTopButton = document.getElementById('backToTopButton');
 
   window.onscroll = function () {
     scrollToTopButtonHandler();
@@ -232,17 +232,17 @@ const { title }: Props = Astro.props;
     margin-top: auto;
   }
 
-  #backToTopBtn {
+  .back-to-top-button {
     position: fixed;
-    bottom: var(--layout-01);
-    right: var(--layout-01);
+    bottom: var(--spacing-03);
+    right: var(--spacing-03);
 
     display: none;
 
-    padding: var(--spacing-02);
+    padding: var(--spacing-03);
 
     border: none;
-    border-radius: 50%;
+    border-radius: var(--layout-01);
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
     background-color: var(--second-bg-color);
     opacity: 0.75;
