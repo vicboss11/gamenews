@@ -1,5 +1,6 @@
 ---
 import { WpPost } from '../models/interfaces/wordpress';
+import { extractH1Content } from '../scripts/parse-html';
 import { extractCleanSectionContent } from '../scripts/parse-html';
 import { getFormattedDate } from '../scripts/post';
 
@@ -12,6 +13,7 @@ const { category, post }: Props = Astro.props;
 
 const html = post.content.rendered;
 const title = post.title.rendered;
+const h1 = extractH1Content(html);
 const author = post._embedded.author[0].name;
 const modifiedDate = getFormattedDate(post.modified);
 const description = extractCleanSectionContent(html);
@@ -21,7 +23,7 @@ const href = `/${category}/${post.slug}`;
 <article class="post-card">
   <header class="post-card-header">
     <a href={href}>
-      <h2>{title}</h2>
+      <h2>{h1 === '' ? title : h1}</h2>
     </a>
   </header>
 
