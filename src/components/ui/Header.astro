@@ -1,4 +1,5 @@
 ---
+import ThemeToggle from '../ThemeToggle.astro';
 import Navbar from './Navbar.astro';
 
 interface Props {
@@ -19,12 +20,7 @@ const { appName } = Astro.props;
     <Navbar />
 
     <section class="header-actions">
-      <input class="light-dark-checkbox" type="checkbox" checked />
-
-      <button class="light-dark-button" type="button">
-        <i class="ti ti-sun"></i>
-        <i class="ti ti-moon"></i>
-      </button>
+      <ThemeToggle />
     </section>
   </section>
 </header>
@@ -81,79 +77,6 @@ const { appName } = Astro.props;
     grid-area: navbar;
 
     margin: 0 auto;
-  }
-
-  .light-dark-checkbox {
-    position: absolute;
-    z-index: -10;
-
-    display: none;
-  }
-
-  .light-dark-button {
-    display: grid;
-    place-content: center;
-
-    border: none;
-    background-color: transparent;
-    border-radius: 50%;
-
-    --size: 1.5rem;
-    width: var(--size);
-    height: var(--size);
-    font-size: var(--size);
-
-    transition: opacity 150ms;
-
-    cursor: pointer;
-
-    &:hover {
-      opacity: 0.5;
-    }
-
-    .ti-sun {
-      display: block;
-    }
-
-    .ti-moon {
-      display: none;
-
-      font-size: 1.25rem;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .light-dark-button {
-      .ti-sun {
-        display: none;
-      }
-
-      .ti-moon {
-        display: block;
-      }
-    }
-  }
-
-  :root {
-    &.light-theme .light-dark-button {
-      .ti-sun {
-        display: block;
-      }
-
-      .ti-moon {
-        display: none;
-      }
-    }
-
-    &.dark-theme .light-dark-button {
-      .ti-sun {
-        display: none;
-      }
-
-      .ti-moon {
-        display: block;
-      }
-    }
   }
 
   @media (min-width: 604px) {
