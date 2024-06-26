@@ -133,6 +133,18 @@ function generateIdFromText(text: string): string {
     .replace(/\s+/g, '-');
 }
 
+export function extractH1Content(html: string): string {
+  const h1Regex = /<h1\b[^>]*>(.*?)<\/h1>/is;
+
+  const match = html.match(h1Regex);
+
+  if (match) {
+    return match[1];
+  }
+
+  return '';
+}
+
 export function extractCleanSectionContent(html: string): string {
   const sectionRegex =
     /<section\b[^>]*class\s*=\s*["'][^"']*\bpost-description\b[^"']*["'][^>]*>(.*?)<\/section>|<section\b[^>]*>(.*?)<\/section>/is;
