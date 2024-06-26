@@ -1,6 +1,8 @@
 import type { GameNew } from '../../models/interfaces/gamenews';
 import type { ReactElement } from 'react';
+import '@github/relative-time-element';
 import './GameNew.scss';
+import { isToday } from '../../scripts/date-utils';
 
 interface Props {
   gamenew: GameNew;
@@ -10,9 +12,11 @@ const imageSize = 100;
 
 function GameNew({ gamenew }: Props): ReactElement {
   const { brand, brandKey, title, author, publishedAt, url } = gamenew;
+  const publishedAtString = publishedAt.toString();
 
   const formattedPublishedAt = new Date(publishedAt)
     .toLocaleDateString('es-ES', {
+      timeZone: 'UTC',
       year: 'numeric',
       month: 'short',
       day: 'numeric',
@@ -48,9 +52,17 @@ function GameNew({ gamenew }: Props): ReactElement {
         <span className="gamenew-brand">{brand}</span>
         <span className="gamenew-author">{author}</span>
 
-        <time className="gamenew-date" dateTime={publishedAt.toString()}>
-          {formattedPublishedAt}
-        </time>
+        {isToday(publishedAtString) ? (
+          <time className="gamenew-date" dateTime={publishedAtString}>
+            <relative-time datetime={publishedAtString}>
+              {formattedPublishedAt}
+            </relative-time>
+          </time>
+        ) : (
+          <time className="gamenew-date" dateTime={publishedAtString}>
+            {formattedPublishedAt}
+          </time>
+        )}
       </p>
     </a>
   );
