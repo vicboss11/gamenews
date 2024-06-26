@@ -1,6 +1,7 @@
 ---
 import type { WpPost } from '../models/interfaces/wordpress';
-import { getFormattedDate, getReadingTime } from '../scripts/post';
+import { getFormattedDate } from '../scripts/date-utils';
+import { getReadingTime } from '../scripts/post';
 
 interface Props {
   post: WpPost;

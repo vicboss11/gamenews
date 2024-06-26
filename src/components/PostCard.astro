@@ -1,8 +1,8 @@
 ---
 import { WpPost } from '../models/interfaces/wordpress';
+import { getFormattedDate } from '../scripts/date-utils';
 import { extractH1Content } from '../scripts/parse-html';
 import { extractCleanSectionContent } from '../scripts/parse-html';
-import { getFormattedDate } from '../scripts/post';
 
 interface Props {
   category: string;
