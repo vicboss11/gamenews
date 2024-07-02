@@ -50,9 +50,12 @@
 .gamenews-more-news-btn {
   align-self: baseline;
 
+  display: grid;
+  place-content: center;
+
   width: fit-content;
   margin: 0 auto;
-  padding: var(--spacing-05) var(--spacing-08);
+  padding: var(--spacing-02);
 
   border: none;
   border-radius: var(--spacing-04);
@@ -64,11 +67,18 @@
   font-weight: 600;
 
   opacity: 1;
-  transition: opacity 350ms ease;
+  transition: opacity 0.3s ease-in-out;
 
   &:hover {
-    opacity: 0.75;
+    opacity: 0.8;
   }
+}
+
+.gamenews-more-news-btn-text {
+  padding: var(--spacing-03) var(--spacing-05);
+
+  background-color: #ffffff2f;
+  border-radius: var(--spacing-03);
 }
 
 .gamenews-no-news,

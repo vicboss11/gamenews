@@ -63,19 +63,19 @@ function GameNews({ from, api }: Props) {
     <section className={`gamenews${brandClass}`}>
       {gamenews.length > 0
         ? gamenews.map((gamenew) => (
-            <GameNew key={gamenew.id} gamenew={gamenew} />
-          ))
+          <GameNew key={gamenew.id} gamenew={gamenew} />
+        ))
         : initialLoadComplete &&
-          !loading &&
-          !hasMore && (
-            <p className="gamenews-no-news">
-              No hay noticias. Vuelve más tarde
-            </p>
-          )}
+        !loading &&
+        !hasMore && (
+          <p className="gamenews-no-news">
+            No hay noticias. Vuelve más tarde
+          </p>
+        )}
 
       {hasMore && !loading && (
         <button className="gamenews-more-news-btn" onClick={fetchGamenews}>
-          Ver más
+          <span className="gamenews-more-news-btn-text">Ver más</span>
         </button>
       )}
 
