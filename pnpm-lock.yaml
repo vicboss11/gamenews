@@ -23,9 +23,9 @@ importers:
       '@github/relative-time-element':
         specifier: ^4.4.2
         version: 4.4.2
-      '@tabler/icons-webfont':
-        specifier: ^3.5.0
-        version: 3.5.0
+      '@tabler/icons':
+        specifier: ^3.9.0
+        version: 3.9.0
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.3
@@ -1154,11 +1154,8 @@ packages:
   '@shikijs/core@1.6.2':
     resolution: {integrity: sha512-guW5JeDzZ7uwOjTfCOFZ2VtVXk5tmkMzBYbKGfXsmAH1qYOej49L5jQDcGmwd6/OgvpmWhzO2GNJkQIFnbwLPQ==}
 
-  '@tabler/icons-webfont@3.5.0':
-    resolution: {integrity: sha512-U+b18h9PqMXq4vB6uxeHe9a++O8QE0tCVNGs40p8nvkw9JMXp6G/ns0OuPnYrwwTsVxFkrRPwZWJrWwSzM17RA==}
-
-  '@tabler/icons@3.5.0':
-    resolution: {integrity: sha512-I53dC3ZSHQ2MZFGvDYJelfXm91L2bTTixS4w5jTAulLhHbCZso5Bih4Rk/NYZxlngLQMKHvEYwZQ+6w/WluKiA==}
+  '@tabler/icons@3.9.0':
+    resolution: {integrity: sha512-wZAwEu4iI0WmUA/bjstzNYri13D8X14f/SCRrzr2MyU+WP/6Vd+xq4YLM52dOS8V6ZVt+ujuE9IFkuJdsdSVAQ==}
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -3878,11 +3875,7 @@ snapshots:
 
   '@shikijs/core@1.6.2': {}
 
-  '@tabler/icons-webfont@3.5.0':
-    dependencies:
-      '@tabler/icons': 3.5.0
-
-  '@tabler/icons@3.5.0': {}
+  '@tabler/icons@3.9.0': {}
 
   '@types/babel__core@7.20.5':
     dependencies:
