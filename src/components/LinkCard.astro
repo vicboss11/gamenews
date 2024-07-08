@@ -14,12 +14,16 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 
 const size = 40;
+
+const getBrandImage = (brand: string) => {
+  return images[`/src/assets/web-brands/${brand}.webp`]();
+};
 ---
 
 <section class=`link-card link-card-${to}`>
   <a class="link-card-anchor" href={`/${to}/`}>
     <Image
-      src={images[`/src/assets/web-brands/${to}.webp`]()}
+      src={getBrandImage(to)}
       alt={`Logo de ${brand}`}
       width={size}
       height={size}
