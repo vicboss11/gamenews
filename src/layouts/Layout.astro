@@ -22,14 +22,18 @@ const { title }: Props = Astro.props;
     <meta name="generator" content={Astro.generator} />
 
     <!-- Google Adsense -->
-    <meta name="google-adsense-account" content="ca-pub-9023886968232491">
+    <meta name="google-adsense-account" content="ca-pub-9023886968232491" />
 
     <title>{title}</title>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKH4ZVK4EC"></script>
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NKH4ZVK4EC"></script>
+
     <script>
       declare global {
         interface Window {
