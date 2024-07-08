@@ -7,7 +7,8 @@ export function getFormattedDate(date: string) {
 }
 
 export function isToday(dateString: string): boolean {
-  const givenDate = new Date(dateString); // Obtener la fecha actual en la zona horaria de Madrid
+  // Obtener la fecha actual en la zona horaria de Madrid
+  const givenDate = new Date(dateString);
   const today = new Date();
 
   return (
