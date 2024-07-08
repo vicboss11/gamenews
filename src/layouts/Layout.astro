@@ -28,10 +28,16 @@ const { title }: Props = Astro.props;
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKH4ZVK4EC"></script>
     <script>
+      declare global {
+        interface Window {
+          dataLayer: any[];
+        }
+      }
+
       window.dataLayer = window.dataLayer || [];
 
-      function gtag() {
-        dataLayer.push(arguments);
+      function gtag(...args: any[]) {
+        window.dataLayer.push(args);
       }
 
       gtag('js', new Date());
