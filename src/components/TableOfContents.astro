@@ -1,5 +1,6 @@
 ---
 import type { Heading, OrganizedHeading } from '../models/interfaces/html';
+import IconCaretDownFilled from './ui/icons/IconCaretDownFilled.astro';
 
 interface Props {
   headings: string | null;
@@ -35,7 +36,7 @@ const organizedHeadings = organizeHeadings(parsedHeadings);
   <summary class="table-of-contents-summary">
     {title || '¿Qué vas a encontar en este artículo?'}
 
-    <i class="ti ti-caret-down-filled"></i>
+    <IconCaretDownFilled />
   </summary>
 
   <article class="table-of-contents-list-container">
@@ -83,7 +84,7 @@ const organizedHeadings = organizeHeadings(parsedHeadings);
   });
 </script>
 
-<style lang="scss">
+<style lang="scss" is:global>
   .table-of-contents {
     --opacity: 0.35;
     --radius: 1.5rem;
@@ -98,7 +99,7 @@ const organizedHeadings = organizeHeadings(parsedHeadings);
         border-bottom-right-radius: var(--radius);
         border-bottom: 0.1px solid rgba(0, 0, 0, 0.2);
 
-        & > i {
+        & > svg {
           transform: rotate(180deg);
         }
       }
@@ -144,6 +145,7 @@ const organizedHeadings = organizeHeadings(parsedHeadings);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 
     min-width: 100%;
     padding: 2rem;
@@ -180,8 +182,9 @@ const organizedHeadings = organizeHeadings(parsedHeadings);
       filter: blur(80px);
     }
 
-    & > i {
-      font-size: 1rem;
+    & > svg {
+      width: 1.25rem;
+
       color: initial;
       transition: 0.2s;
     }

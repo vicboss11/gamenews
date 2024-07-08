@@ -1,6 +1,7 @@
 ---
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
+import IconCaretRightFilled from './ui/icons/IconCaretRightFilled.astro';
 
 interface Props {
   to: string;
@@ -32,11 +33,11 @@ const getBrandImage = (brand: string) => {
 
     <span>{brand}</span>
 
-    <i class="ti ti-caret-right-filled"></i>
+    <IconCaretRightFilled />
   </a>
 </section>
 
-<style lang="scss">
+<style lang="scss" is:global>
   .link-card {
     --opacity: 0.4;
     --radius: 1rem;
@@ -107,7 +108,7 @@ const getBrandImage = (brand: string) => {
 
     img,
     span,
-    i {
+    svg {
       z-index: 10;
     }
 
@@ -121,8 +122,10 @@ const getBrandImage = (brand: string) => {
       font-weight: 600;
     }
 
-    i {
+    svg {
       margin-left: auto;
+
+      width: 1rem;
     }
 
     &::before {

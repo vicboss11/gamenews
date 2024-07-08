@@ -1,13 +1,18 @@
+---
+import IconMoon from './ui/icons/IconMoon.astro';
+import IconSun from './ui/icons/IconSun.astro';
+---
+
 <input class="light-dark-checkbox" type="checkbox" checked />
 
 <button class="light-dark-button" type="button">
-  <i class="ti ti-sun"></i>
-  <i class="ti ti-moon"></i>
+  <IconSun />
+  <IconMoon />
 </button>
 
 <script src="../scripts/theme-toggle.ts"></script>
 
-<style lang="scss">
+<style lang="scss" is:global>
   .light-dark-checkbox {
     position: absolute;
     z-index: -10;
@@ -36,24 +41,24 @@
       opacity: 0.5;
     }
 
-    .ti-sun {
+    .icon-tabler-sun {
       display: block;
     }
 
-    .ti-moon {
+    .icon-tabler-moon {
       display: none;
 
-      font-size: 1.25rem;
+      width: 1.25rem;
     }
   }
 
   @media (prefers-color-scheme: dark) {
     .light-dark-button {
-      .ti-sun {
+      .icon-tabler-sun {
         display: none;
       }
 
-      .ti-moon {
+      .icon-tabler-moon {
         display: block;
       }
     }
@@ -61,21 +66,21 @@
 
   :root {
     &.light-theme .light-dark-button {
-      .ti-sun {
+      .icon-tabler-sun {
         display: block;
       }
 
-      .ti-moon {
+      .icon-tabler-moon {
         display: none;
       }
     }
 
     &.dark-theme .light-dark-button {
-      .ti-sun {
+      .icon-tabler-sun {
         display: none;
       }
 
-      .ti-moon {
+      .icon-tabler-moon {
         display: block;
       }
     }
