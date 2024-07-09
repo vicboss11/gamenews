@@ -9,6 +9,7 @@ export interface WpPage {
   content: {
     rendered: string;
   };
+  meta: Metadata;
 }
 
 export interface WpPost extends WpPage {
@@ -39,4 +40,10 @@ export interface WpCategory {
   name: string;
   slug: string;
   taxonomy: 'category';
+}
+
+export interface Metadata {
+  _seopress_robots_primary_cat: string;
+  _seopress_titles_title: string;
+  _seopress_titles_desc: string;
 }
