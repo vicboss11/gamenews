@@ -1,5 +1,6 @@
 import cloudflare from '@astrojs/cloudflare';
 import react from '@astrojs/react';
+import partytown from '@astrojs/partytown'
 import { defineConfig } from 'astro/config';
 import dotenv from 'dotenv';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
@@ -25,5 +26,12 @@ export default defineConfig({
       }),
     ],
   },
-  integrations: [react()],
+  integrations: [
+    react(),
+    partytown({
+      config: {
+        forward: ['dataLayer.push'],
+      },
+    }),
+  ],
 });
