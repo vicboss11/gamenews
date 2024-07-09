@@ -32,19 +32,14 @@ const { title }: Props = Astro.props;
     <script
       is:inline
       async
+      type="text/partytown"
       src="https://www.googletagmanager.com/gtag/js?id=G-NKH4ZVK4EC"></script>
 
-    <script>
-      declare global {
-        interface Window {
-          dataLayer: any[];
-        }
-      }
-
+    <script is:inline type="text/partytown">
       window.dataLayer = window.dataLayer || [];
 
-      function gtag(...args: any[]) {
-        window.dataLayer.push(args);
+      function gtag() {
+        window.dataLayer.push(arguments);
       }
 
       gtag('js', new Date());
@@ -55,9 +50,9 @@ const { title }: Props = Astro.props;
     <script
       is:inline
       async
+      type="text/partytown"
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9023886968232491"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   </head>
 
   <body>
