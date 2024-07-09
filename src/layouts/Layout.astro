@@ -8,16 +8,22 @@ import IconChevronUp from '../components/ui/icons/IconChevronUp.astro';
 
 interface Props {
   title: string;
+  meta: {
+    title: string;
+    description: string;
+  };
 }
 
-const { title }: Props = Astro.props;
+const { title, meta }: Props = Astro.props;
+
+console.log(meta);
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={meta.description} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 

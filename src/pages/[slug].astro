@@ -9,6 +9,11 @@ import parseHtml from '../scripts/parse-html';
 const { slug } = Astro.params;
 
 let page: WpPage | null = null;
+let meta = {
+  title: '',
+  description: '',
+};
+
 let html = '';
 let segments: Segment[] = [];
 
@@ -27,6 +32,11 @@ try {
 
   page = fetchedPage;
 
+  meta = {
+    title: page.meta._seopress_titles_title,
+    description: page.meta._seopress_titles_desc,
+  };
+
   const parsedContent = parseHtml(page.content.rendered);
 
   html = parsedContent.html;
@@ -38,7 +48,7 @@ try {
 
 {
   page ? (
-    <PageLayout appName={APP_NAME} title={page.title.rendered}>
+    <PageLayout appName={APP_NAME} title={page.title.rendered} meta={meta}>
       <PageContent page={page} html={html} segments={segments} />
     </PageLayout>
   ) : (

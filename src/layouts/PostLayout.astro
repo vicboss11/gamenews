@@ -6,12 +6,16 @@ import Layout from './Layout.astro';
 interface Props {
   appName: string;
   title: string;
+  meta: {
+    title: string;
+    description: string;
+  };
 }
 
-const { appName, title }: Props = Astro.props;
+const { appName, title, meta }: Props = Astro.props;
 ---
 
-<Layout title={title}>
+<Layout title={title} meta={meta}>
   <Header appName={appName} />
 
   <main>

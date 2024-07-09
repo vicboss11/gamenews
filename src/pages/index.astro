@@ -10,9 +10,14 @@ const slug = 'home';
 const res = await fetch(`${WP_SITE}/wp-json/wp/v2/pages?slug=${slug}`);
 const [page]: [WpPage] = await res.json();
 
+const meta = {
+  title: page.meta._seopress_titles_title || '',
+  description: page.meta._seopress_titles_desc || '',
+};
+
 const { html, segments } = parseHtml(page.content.rendered);
 ---
 
-<HomeLayout appName={APP_NAME} title={page.title.rendered}>
+<HomeLayout appName={APP_NAME} title={page.title.rendered} meta={meta}>
   <HomeContent page={page} html={html} segments={segments} />
 </HomeLayout>
