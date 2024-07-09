@@ -1,10 +1,10 @@
 import cloudflare from '@astrojs/cloudflare';
-import react from '@astrojs/react';
 import partytown from '@astrojs/partytown';
+import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import dotenv from 'dotenv';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
-
 dotenv.config();
 
 // https://astro.build/config
@@ -26,6 +26,7 @@ export default defineConfig({
       }),
     ],
   },
+  site: 'https://gamenewshub.es',
   integrations: [
     react(),
     partytown({
@@ -33,5 +34,6 @@ export default defineConfig({
         forward: ['dataLayer.push'],
       },
     }),
+    sitemap(),
   ],
 });
