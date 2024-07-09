@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import dotenv from 'dotenv';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+
 dotenv.config();
 
 // https://astro.build/config
