@@ -4,7 +4,6 @@ export const brands: { [key: string]: string } = {
   areajugones: 'Areajugones',
   eurogamer: 'Eurogamer',
   hobbyconsolas: 'HobbyConsolas',
-  ign: 'IGN España',
   meristation: 'MeriStation',
   vandal: 'Vandal',
 };
