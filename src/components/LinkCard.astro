@@ -1,6 +1,4 @@
 ---
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
 import IconCaretRightFilled from './ui/icons/IconCaretRightFilled.astro';
 
 interface Props {
@@ -10,21 +8,14 @@ interface Props {
 
 let { to, brand }: Props = Astro.props;
 
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/web-brands/*.webp',
-);
-
+const imageUrl = `/web-brands/${to}.webp`;
 const size = 40;
-
-const getBrandImage = (brand: string) => {
-  return images[`/src/assets/web-brands/${brand}.webp`]();
-};
 ---
 
 <section class=`link-card link-card-${to}`>
   <a class="link-card-anchor" href={`/${to}/`}>
-    <Image
-      src={getBrandImage(to)}
+    <img
+      src={imageUrl}
       alt={`Logo de ${brand}`}
       width={size}
       height={size}

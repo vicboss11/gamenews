@@ -12,8 +12,9 @@ const imageSize = 100;
 
 function GameNew({ gamenew }: Props): ReactElement {
   const { brand, brandKey, title, author, publishedAt, url } = gamenew;
-  const publishedAtString = publishedAt.toString();
 
+  const imageUrl = `/web-brands/${brandKey}.webp`;
+  const publishedAtString = publishedAt.toString();
   const formattedPublishedAt = new Date(publishedAt)
     .toLocaleDateString('es-ES', {
       timeZone: 'UTC',
@@ -25,11 +26,6 @@ function GameNew({ gamenew }: Props): ReactElement {
     .join(' ')
     .toUpperCase();
 
-  const getBrandLogo = (brandKey: string) => {
-    return new URL(`../../assets/web-brands/${brandKey}.webp`, import.meta.url)
-      .href;
-  };
-
   return (
     <a
       className={`gamenew gamenew-${brandKey}`}
@@ -39,7 +35,7 @@ function GameNew({ gamenew }: Props): ReactElement {
     >
       <img
         className="gamenew-brand-logo"
-        src={getBrandLogo(brandKey)}
+        src={imageUrl}
         alt={`Logo de ${brand}`}
         width={imageSize}
         height={imageSize}
