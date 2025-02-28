@@ -1,16 +1,15 @@
-import cloudflare from '@astrojs/cloudflare';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import dotenv from 'dotenv';
-
+import vercel from '@astrojs/vercel/serverless';
 dotenv.config();
 
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
-  adapter: cloudflare(),
+  adapter: vercel(),
   vite: {
     define: {
       'process.env': process.env,
