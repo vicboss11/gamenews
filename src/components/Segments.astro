@@ -1,5 +1,5 @@
 ---
-import { GAMENEWS_API, GAMENEWS_TOKEN } from '../config/config';
+import { GAMENEWS_API, GAMENEWS_API_TOKEN } from '../config/config';
 import GameNews from '../islands/GameNews/GameNews';
 import type { Segment } from '../models/interfaces/segments';
 import type { WpPage, WpPost } from '../models/interfaces/wordpress';
@@ -37,7 +37,7 @@ const { post, html, segments } = data;
             url: from
               ? `${GAMENEWS_API}/news/${from}/paginated`
               : `${GAMENEWS_API}/news/paginated`,
-            token: GAMENEWS_TOKEN,
+            token: GAMENEWS_API_TOKEN,
           };
 
           return <GameNews client:load from={from} api={api} />;
